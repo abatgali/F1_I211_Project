@@ -2,7 +2,7 @@
 ## I211 - Information Infrastructure II
 ### Project Group 3
 
-Covers 2022 season's details and lets user pick their favorite drivers to create their own fantasy F1 team
+Covers 2022 F1 season's details and lets user pick their favorite drivers and one constructor to create their own fantasy F1 team.
 
 Functionality:
 - Homepage displaying teams, cars and drivers
