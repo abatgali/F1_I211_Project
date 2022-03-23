@@ -7,7 +7,7 @@ Covers 2022 F1 season's details and lets user pick their favorite drivers and a 
 Functionality:
 - Homepage displaying teams, cars and drivers
 - User can create accounts
-- CRUD operations on respective teams
+- CRUD operations on fantasy teams
 
 Uses:
 - MVC
