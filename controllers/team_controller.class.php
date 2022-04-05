@@ -3,7 +3,7 @@
  * Author: Sierra Braun
  * Date: 4/5/22
  * File: team_controller.class.php
- * Description: controller for teams
+ * Description: controller for team
  */
 
 

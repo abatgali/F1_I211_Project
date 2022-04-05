@@ -6,12 +6,18 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CarView' => $baseDir . '/views/car/car_view.class.php',
     'ComposerAutoloaderInit121436999bb9b3c836c61b7ae444eb4d' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d' => $vendorDir . '/composer/autoload_static.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Database' => $baseDir . '/application/database.class.php',
+    'DriverView' => $baseDir . '/views/driver/driver_view.class.php',
     'HomeController' => $baseDir . '/controllers/home_controller.class.php',
     'Index' => $baseDir . '/views/index/index.class.php',
+    'Team' => $baseDir . '/models/team/team.class.php',
+    'TeamController' => $baseDir . '/controllers/team_controller.class.php',
+    'TeamModel' => $baseDir . '/models/team/team_model.class.php',
+    'TeamView' => $baseDir . '/views/team/team_view.class.php',
     'View' => $baseDir . '/views/view.class.php',
 );

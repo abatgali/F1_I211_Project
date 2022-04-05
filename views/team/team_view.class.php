@@ -7,32 +7,37 @@
  */
 
 class TeamView extends View{
-    public function display($teams) {
-        //display page header
+    public function display($toys)
+    {
+        //display header
         parent::header();
+
         ?>
-        <div id="main-header"> Teams</div>
 
-        <div class="grid-container">
+        <table border="0">
+            <tr>
+                <th>ID</th>
+                <th>Team Name</th>
+                <th>First Team Entry</th>
+                <th>World Championships</th>
+                <th>Base Country</th>
+            </tr>
+            <!-- create a new row for each toy -->
             <?php
-            if ($teams === 0) {
-                echo "No team was found.<br><br><br><br><br>";
-            } else {
-                //display teams in a grid
-                foreach ($teams as $team) {
-                    $teamID = $team->getTeamId();
-                    $teamName = $team->getTeamName();
-
-
-
-                }
+            foreach ($teams as $team) {
+                echo "<tr>";
+                echo "<td>", $team->getTeamID(), "</td>";
+                echo "<td>", $team->getTeamName(), "</td>";
+                echo "<td>", $team->getFirstTeamEntry(), "</td>";
+                echo "<td>", $team->getWorldChampionships(), "</td>";
+                echo "</tr>";
             }
             ?>
-        </div>
+        </table>
+        </body>
+        </html>
 
         <?php
-        //display page footer
-        parent::displayFooter();
-    } //end of display method
+    }
 
 }
