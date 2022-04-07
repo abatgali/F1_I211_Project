@@ -1,6 +1,6 @@
 <?php
 /**
- * Author: Piper Varney
+ * Author: Anant Batgali
  * Date: 4/7/22
  * File: car_controller.class.php
  * Description:
@@ -8,27 +8,30 @@
 
 class CarController
 {
+    //an object of carModel
     private $car_model;
 
-    //default constructor
+    //the constructor
     public function __construct() {
-        //create an instance of the MovieModel class
-        $this->car_model = CarModel::getCarModel();
+        //create an object of the ToyModel class
+        $this->car_model = new CarModel();
     }
 
-    //index action that displays all cars
+    //list all cars
     public function index() {
-        //retrieve all cars and store them in an array
+        //retrieve all toys and store them in an array
         $cars = $this->car_model->getCars();
+
+        //if there is no car or retrieving cars from the database failed, display an error message
         if (!$cars) {
-            //display an error
-            $message = "There was a problem displaying cars.";
-            echo $message;
+            //$this->error("No team was found.");
             return;
         }
-        // display all movies
-        $view = new DriverIndex();
+
+        //create an object of the ToyView class
+        $view = new CarView();
+
+        //display all toys
         $view->display($cars);
     }
-
 }

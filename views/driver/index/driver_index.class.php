@@ -3,7 +3,7 @@
  * Author: Anant Batgali
  * Date: 4/6/22
  * File: driver_index.class.php
- * Description: Displays all the drivers and their stats
+ * Description: Displays all the 2022 Season's drivers
  */
 
 class DriverIndex extends DriverIndexView

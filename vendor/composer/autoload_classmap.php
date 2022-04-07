@@ -7,8 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Car' => $baseDir . '/models/car/car.class.php',
+    'CarController' => $baseDir . '/controllers/car_controller.class.php',
     'CarModel' => $baseDir . '/models/car/car_model.class.php',
-    'CarView' => $baseDir . '/views/car/car_view.class.php',
+    'CarView' => $baseDir . '/views/car/index/car_view.class.php',
     'ComposerAutoloaderInit121436999bb9b3c836c61b7ae444eb4d' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d' => $vendorDir . '/composer/autoload_static.php',
@@ -26,5 +27,5 @@ return array(
     'Team' => $baseDir . '/models/team/team.class.php',
     'TeamController' => $baseDir . '/controllers/team_controller.class.php',
     'TeamModel' => $baseDir . '/models/team/team_model.class.php',
-    'TeamView' => $baseDir . '/views/team/team_view.class.php',
+    'TeamView' => $baseDir . '/views/team/index/team_view.class.php',
 );

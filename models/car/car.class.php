@@ -11,12 +11,12 @@ class Car {
     private $carID, $chassis, $powerUnit, $carImage, $team;
 
     //constructor that initializes car properties
-    public function __construct($carID, $chassis, $powerUnit, $carImage, $team)
+    public function __construct($carID, $chassis, $powerUnit, $team)
     {
         $this->carID = $carID;
         $this->chassis = $chassis;
         $this->powerUnit = $powerUnit;
-        $this->carImage = $carImage;
+        //$this->carImage = $carImage;
         $this->team = $team;
     }
 
@@ -38,11 +38,11 @@ class Car {
         return $this->powerUnit;
     }
 
-    //method to retrieve carImage
+  /*  //method to retrieve carImage
     public function getCarImage()
     {
         return $this->carImage;
-    }
+    }*/
 
     //method to retrieve team
     public function getTeam()
