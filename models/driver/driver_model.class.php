@@ -54,12 +54,12 @@ class DriverModel
         if (!$query)
             return false;
 
-        //if the query succeeded, but no movie was found.
+        //if the query succeeded, but no driver was found.
         if ($query->num_rows == 0)
             return 0;
 
         //handle the result
-        //create an array to store all returned movies
+        //create an array to store all returned drivers
         $drivers = array();
 
         //loop through all rows in the returned record sets
