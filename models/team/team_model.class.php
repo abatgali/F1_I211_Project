@@ -48,7 +48,7 @@ class TeamModel {
                     $query_row["base"]
                 );
 
-                //push the toy into the array
+                //push the team into the array
                 $teams[] = $team;
             }
             return $teams;
