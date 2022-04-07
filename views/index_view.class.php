@@ -2,13 +2,13 @@
 /**
  * Author: Anant Batgali
  * Date: 4/2/22
- * File: view.class.php
+ * File: index_view.class.php
  * Description: displays header of the f1 website
  */
 
-class View {
+class IndexView {
 
-    public static function header()
+    public static function displayHeader($title)
     {
         ?>
 
@@ -23,7 +23,7 @@ class View {
             <!-- Bootstrap CSS -->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-            <title>F1 I211 Project</title>
+            <title><?=$title?></title>
         </head>
         <body>
 
@@ -42,8 +42,8 @@ class View {
 
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                        <img src="static/img/f1_logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                    <a class="navbar-brand" href="<?= BASE_URL ?>/index">
+                        <img src="<?=BASE_URL?>/static/img/f1_logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
                         Formula 1
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,13 +52,16 @@ class View {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" aria-current="page" href="<?= BASE_URL ?>/index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Teams</a>
+                                <a class="nav-link" href="<?= BASE_URL ?>/team/index">Teams</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Drivers</a>
+                                <a class="nav-link" href="<?= BASE_URL ?>/driver/index">Drivers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= BASE_URL ?>/car/index">Cars</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link">Log In</a>
@@ -71,13 +74,13 @@ class View {
         <?php
     }
 
-    public static function footer()
+    public static function displayFooter()
     {
         ?>
 <!--                </div>-->
                 <footer class="footer mt-auto py-3 bg-dark">
                     <div class="container">
-                        <span class="text-muted"> &copy; Group 3 I211 Project</span>
+                        <span class="text-muted"> &copy; Group 3 - I211 Project</span>
                     </div>
                 </footer>
             </body>
