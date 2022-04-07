@@ -14,7 +14,7 @@ class DriverIndex extends DriverIndexView
 
         parent::displayHeader("F1 Drivers");
         ?>
-        <div class="grid">
+        <div class="row row-cols-2">
         <?php
         $i = 0;
         foreach ($drivers as $driver) {
@@ -24,9 +24,24 @@ class DriverIndex extends DriverIndexView
             $rNum = $driver->getRNum();
 
             ?>
-            <div class="g-col-6 m-2"><?php echo "$lastName $rNum";?></div>
+<!--        <div class="g-col-6 m-2">-->
+            <div class="card g-col-6 m-3" style="width: 18rem;">
+                <img src="<?php echo BASE_URL."/static/img/drivers/".$driverID.".jpeg"; ?>" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $rNum;?></h5>
+                    <p class="card-text"><?php echo $lastName;?></p>
+                </div>
+                <!--<ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                </div>-->
+            </div>
             <?php
-
+            }
 
            /*
             * extra details that can be displayed if user clicks on the driver
@@ -40,14 +55,8 @@ class DriverIndex extends DriverIndexView
             $team = $driver->getTeam();
 
            */
-
-            $i++;
-
-        // for loop closes
-        }
-
-        // closing the grid div
-        ?>
+            ?>
+        <!--closing grid div-->
         </div>
         <?php
 
