@@ -16,7 +16,8 @@ class Database {
         'database' => 'formula1_db',
         'tblCars' => 'cars',
         'tblDrivers' => 'drivers',
-        'tblTeams' => 'teams'
+        'tblTeams' => 'teams',
+        'tblUsers' => 'users'
     );
 
     //define the database connection object
@@ -38,7 +39,7 @@ class Database {
     }
 
     //static method to ensure there is just one Database instance
-    static public function getInstance() {
+    static public function getDatabase() {
         if (self::$_instance == NULL) {
             self::$_instance = new Database();
         }
@@ -63,5 +64,10 @@ class Database {
     //returns the name of the table storing drivers
     public function getTeamsTable() {
         return $this->param['tblTeams'];
+    }
+
+    //returns the name of the table storing users
+    public function getUsersTable() {
+        return $this->param['tblUsers'];
     }
 }

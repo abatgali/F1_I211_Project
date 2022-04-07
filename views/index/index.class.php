@@ -6,11 +6,11 @@
  * Description:
  */
 
-class Index extends View
+class Index extends IndexView
 {
     public function display()
     {
-        parent::header();
+        parent::displayHeader("F1 Home")
         ?>
 
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -42,6 +42,6 @@ class Index extends View
         </div>
 
         <?php
-        parent::footer();
+        parent::displayFooter();
     }
 }
