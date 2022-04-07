@@ -10,12 +10,24 @@ class CarModel
 {
     private $db;  //database object
     private $dbConnection;  //database connection object
+    static private $_instance = NULL;
+    private $tblCar;
 
     //the constructor that initializes two data members.
     public function __construct()
     {
         $this->db = Database::getInstance();
         $this->dbConnection = $this->db->getConnection();
+        $this->tblCar = $this->db->getCarsTable();
+    }
+
+    //static method to ensure there is just one DriverModel instance
+    public static function getCarModel()
+    {
+        if (self::$_instance == NULL) {
+            self::$_instance = new CarModel();
+        }
+        return self::$_instance;
     }
 
     /*
@@ -48,4 +60,5 @@ class CarModel
         }
         return false;
     }
+
 }

@@ -7,20 +7,27 @@ namespace Composer\Autoload;
 class ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d
 {
     public static $classMap = array (
+        'Car' => __DIR__ . '/../..' . '/models/car/car.class.php',
+        'CarModel' => __DIR__ . '/../..' . '/models/car/car_model.class.php',
         'CarView' => __DIR__ . '/../..' . '/views/car/car_view.class.php',
         'ComposerAutoloaderInit121436999bb9b3c836c61b7ae444eb4d' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Database' => __DIR__ . '/../..' . '/application/database.class.php',
-        'DriverView' => __DIR__ . '/../..' . '/views/driver/driver_view.class.php',
+        'Dispatcher' => __DIR__ . '/../..' . '/application/dispatcher.class.php',
+        'Driver' => __DIR__ . '/../..' . '/models/driver/driver.class.php',
+        'DriverController' => __DIR__ . '/../..' . '/controllers/driver_controller.class.php',
+        'DriverIndex' => __DIR__ . '/../..' . '/views/driver/index/driver_index.class.php',
+        'DriverIndexView' => __DIR__ . '/../..' . '/views/driver/driver_index_view.class.php',
+        'DriverModel' => __DIR__ . '/../..' . '/models/driver/driver_model.class.php',
         'HomeController' => __DIR__ . '/../..' . '/controllers/home_controller.class.php',
         'Index' => __DIR__ . '/../..' . '/views/index/index.class.php',
+        'IndexView' => __DIR__ . '/../..' . '/views/index_view.class.php',
         'Team' => __DIR__ . '/../..' . '/models/team/team.class.php',
         'TeamController' => __DIR__ . '/../..' . '/controllers/team_controller.class.php',
         'TeamModel' => __DIR__ . '/../..' . '/models/team/team_model.class.php',
         'TeamView' => __DIR__ . '/../..' . '/views/team/team_view.class.php',
-        'View' => __DIR__ . '/../..' . '/views/view.class.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
