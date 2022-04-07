@@ -12,7 +12,7 @@ class TeamModel {
 
     //the constructor that initializes two data members.
     public function __construct() {
-        $this->db = Database::getInstance();
+        $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
     }
 
@@ -27,13 +27,21 @@ class TeamModel {
         //execute the query
         $query = $this->dbConnection->query($sql);
 
-        if ($query && $query->num_rows > 0) {
-            //array to store all toys
-            $teams = array();
+        //array to store all team details
+        $teams = array();
 
-            //loop through all rows
+        while ($obj = $query->fetch_object()) {
+
+            $team = new Team(stripslashes($obj->teamID),stripslashes($obj->teamName), stripslashes($obj->firstTeamEntry), stripslashes($obj->worldChampionships), stripslashes($obj->base));
+
+            //add the team into the array
+            $teams[] = $team;
+        }
+        return $teams;
+    }
+            /*//loop through all rows
             while ($query_row = $query->fetch_assoc()) {
-                $team = new Team($query_row["id"],
+                $team = new Team($query_row["teamId"],
                     $query_row["teamName"],
                     $query_row["firstTeamEntry"],
                     $query_row["worldChampionships"],
@@ -46,5 +54,5 @@ class TeamModel {
             return $teams;
         }
         return false;
-    }
+    }*/
 }

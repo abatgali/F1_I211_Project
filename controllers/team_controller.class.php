@@ -19,7 +19,7 @@ class TeamController {
     }
 
     //list all toys
-    public function all() {
+    public function index() {
         //retrieve all toys and store them in an array
         $teams = $this->team_model->getTeams();
 

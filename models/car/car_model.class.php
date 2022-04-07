@@ -14,7 +14,7 @@ class CarModel
     //the constructor that initializes two data members.
     public function __construct()
     {
-        $this->db = Database::getInstance();
+        $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
     }
 
@@ -33,19 +33,31 @@ class CarModel
             //array to store all cars
             $cars = array();
 
-            //loop through all rows
-            while ($query_row = $query->fetch_assoc()) {
-                $car = new Car($query_row["carID"],
-                    $query_row["chassis"],
-                    $query_row["powerUnit"],
-                    $query_row["carImage"],
-                    $query_row["team"]);
+            while ($obj = $query->fetch_object()) {
 
-                //push the toy into the array
+                $car = new Car(stripslashes($obj->carID), stripslashes($obj->getChassis), stripslashes($obj->getPowerUnit), stripslashes($obj->getTeam));
+
+                //add the team into the array
                 $cars[] = $car;
             }
             return $cars;
         }
         return false;
+
+        /*//loop through all rows
+        while ($query_row = $query->fetch_assoc()) {
+            $car = new Car($query_row["carID"],
+                $query_row["chassis"],
+                $query_row["powerUnit"],
+                $query_row["carImage"],
+                $query_row["team"]);
+
+            //push the toy into the array
+            $cars[] = $car;
+        }
+        return $cars;
+    }
+    return false;            */
+
     }
 }
