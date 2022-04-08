@@ -20,7 +20,7 @@ class CarView extends IndexView {
                 <th>ID</th>
                 <th>Chassis</th>
                 <th>Power Unit</th>
-                <th>Car Image</th>
+<!--                <th>Car Image</th>-->
                 <th>Team</th>
             </thead>
             <!-- create a new row for each car -->
@@ -28,9 +28,10 @@ class CarView extends IndexView {
             foreach ($cars as $car) {
                 echo "<tr>";
                 echo "<td>", $car->getCarID(), "</td>";
+                echo "<img src=".BASE_URL."/static/img/cars/".$car->getCarID().".png>";
                 echo "<td>", $car->getChassis(), "</td>";
                 echo "<td>", $car->getPowerUnit(), "</td>";
-                echo "<td>", /*,$car->getCarImage(),*/ "</td>";
+                /*echo "<td>", ,$car->getCarImage(), "</td>";*/
                 echo "<td>", $car->getTeam(), "</td>";
                 echo "</tr>";
             }

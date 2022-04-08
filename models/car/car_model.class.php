@@ -29,20 +29,26 @@ class CarModel
         //execute the query
         $query = $this->dbConnection->query($sql);
 
-        if ($query && $query->num_rows > 0) {
-            //array to store all cars
-            $cars = array();
+        // if the query failed, return false.
+        if (!$query)
+            return false;
 
-            while ($obj = $query->fetch_object()) {
+        //if the query succeeded, but no car was found.
+        if ($query->num_rows == 0)
+            return 0;
 
-                $car = new Car(stripslashes($obj->carID), stripslashes($obj->getChassis), stripslashes($obj->getPowerUnit), stripslashes($obj->getTeam));
+        //create an array to store all returned cars
+        $cars = array();
+
+        while ($obj = $query->fetch_object()) {
+
+            $car = new Car(stripslashes($obj->carID), stripslashes($obj->getChassis), stripslashes($obj->getPowerUnit), stripslashes($obj->getTeam));
 
                 //add the team into the array
                 $cars[] = $car;
             }
             return $cars;
         }
-        return false;
 
         /*//loop through all rows
         while ($query_row = $query->fetch_assoc()) {
@@ -59,5 +65,5 @@ class CarModel
     }
     return false;            */
 
-    }
+
 }

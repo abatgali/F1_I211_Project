@@ -61,7 +61,7 @@ class Database {
         return $this->param['tblCars'];
     }
 
-    //returns the name of the table storing drivers
+    //returns the name of the table storing teams
     public function getTeamsTable() {
         return $this->param['tblTeams'];
     }

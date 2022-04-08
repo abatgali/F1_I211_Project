@@ -13,13 +13,13 @@ class CarController
 
     //the constructor
     public function __construct() {
-        //create an object of the ToyModel class
+        //create an object of the CarModel class
         $this->car_model = new CarModel();
     }
 
     //list all cars
     public function index() {
-        //retrieve all toys and store them in an array
+        //retrieve all cars and store them in an array
         $cars = $this->car_model->getCars();
 
         //if there is no car or retrieving cars from the database failed, display an error message
@@ -28,10 +28,10 @@ class CarController
             return;
         }
 
-        //create an object of the ToyView class
+        //create an object of the CarView class
         $view = new CarView();
 
-        //display all toys
+        //display all cars
         $view->display($cars);
     }
 }

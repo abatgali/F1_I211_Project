@@ -12,13 +12,13 @@ class DriverController
 
     //default constructor
     public function __construct() {
-        //create an instance of the MovieModel class
+        //create an instance of the DriverModel class
         $this->driver_model = DriverModel::getDriverModel();
     }
 
-    //index action that displays all movies
+    //index action that displays all drivers
     public function index() {
-        //retrieve all movies and store them in an array
+        //retrieve all drivers and store them in an array
         $drivers = $this->driver_model->listAllDrivers();
         if (!$drivers) {
             //display an error
@@ -27,7 +27,7 @@ class DriverController
             //$this->error($message);
             return;
         }
-        // display all movies
+        // display all drivers
         $view = new DriverIndex();
         $view->display($drivers);
     }
