@@ -3,7 +3,7 @@
  * Author: Anant Batgali
  * Date: 4/2/22
  * File: index.class.php
- * Description:
+ * Description: Homepage image carousel
  */
 
 class Index extends IndexView

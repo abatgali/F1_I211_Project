@@ -40,22 +40,23 @@ class CarModel
         //create an array to store all returned cars
         $cars = array();
 
-        while ($obj = $query->fetch_object()) {
+      /*
 
-            $car = new Car(stripslashes($obj->carID), stripslashes($obj->getChassis), stripslashes($obj->getPowerUnit), stripslashes($obj->getTeam));
+      while ($obj = $query->fetch_object()) {
+
+            $car = new Car(stripslashes($obj->carID), stripslashes($obj->chassis), stripslashes($obj->powerUnit), stripslashes($obj->team));
 
                 //add the team into the array
                 $cars[] = $car;
             }
             return $cars;
-        }
+        }*/
 
-        /*//loop through all rows
+        //loop through all rows
         while ($query_row = $query->fetch_assoc()) {
             $car = new Car($query_row["carID"],
                 $query_row["chassis"],
                 $query_row["powerUnit"],
-                $query_row["carImage"],
                 $query_row["team"]);
 
             //push the toy into the array
@@ -63,7 +64,6 @@ class CarModel
         }
         return $cars;
     }
-    return false;            */
 
 
 }

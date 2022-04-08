@@ -3,7 +3,7 @@
  * Author: Anant Batgali
  * Date: 4/2/22
  * File: index_view.class.php
- * Description: displays header of the f1 website
+ * Description: displays header and footer of the f1 website
  */
 
 class IndexView {
@@ -52,16 +52,16 @@ class IndexView {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="<?= BASE_URL ?>/index">Home</a>
+                                <a class="nav-link<?php if ($title == "F1 Home") {?> active <?php }?>" aria-current="page" href="<?= BASE_URL ?>/index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= BASE_URL ?>/team/index">Teams</a>
+                                <a class="nav-link<?php if ($title == "F1 Teams") {?> active <?php }?>" href="<?= BASE_URL ?>/team/index">Teams</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= BASE_URL ?>/driver/index">Drivers</a>
+                                <a class="nav-link <?php if ($title == "F1 Drivers") {?> active <?php }?>" href="<?= BASE_URL ?>/driver/index">Drivers</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= BASE_URL ?>/car/index">Cars</a>
+                                <a class="nav-link <?php if ($title == "F1 Cars") {?> active <?php }?>" href="<?= BASE_URL ?>/car/index">Cars</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link">Log In</a>
