@@ -8,7 +8,7 @@
 
 class Car {
     //properties of a Car object
-    private $carID, $chassis, $powerUnit, $carImage, $team;
+    private $carID, $chassis, $powerUnit, $team;
 
     //constructor that initializes car properties
     public function __construct($carID, $chassis, $powerUnit, $team)
@@ -16,7 +16,6 @@ class Car {
         $this->carID = $carID;
         $this->chassis = $chassis;
         $this->powerUnit = $powerUnit;
-        //$this->carImage = $carImage;
         $this->team = $team;
     }
 
