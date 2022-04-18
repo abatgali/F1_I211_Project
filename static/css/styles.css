@@ -1,0 +1,17 @@
+.homepageImages {
+    width: 100%;
+}
+
+.imageDriverDetail {
+    max-width: 30%;
+}
+
+.noDecor a {
+    text-decoration: none;
+    color: #48300d;
+    font-weight: bold;
+}
+
+.imageTeam {
+    max-width: 65%;
+}

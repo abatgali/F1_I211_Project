@@ -18,6 +18,7 @@ return array(
     'Dispatcher' => $baseDir . '/application/dispatcher.class.php',
     'Driver' => $baseDir . '/models/driver/driver.class.php',
     'DriverController' => $baseDir . '/controllers/driver_controller.class.php',
+    'DriverDetail' => $baseDir . '/views/driver/detail/driver_detail.class.php',
     'DriverIndex' => $baseDir . '/views/driver/index/driver_index.class.php',
     'DriverIndexView' => $baseDir . '/views/driver/driver_index_view.class.php',
     'DriverModel' => $baseDir . '/models/driver/driver_model.class.php',

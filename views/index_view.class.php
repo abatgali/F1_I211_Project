@@ -22,7 +22,7 @@ class IndexView {
 
             <!-- Bootstrap CSS -->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+            <link rel="stylesheet" href="<?=BASE_URL?>/static/css/styles.css">
             <title><?=$title?></title>
         </head>
         <body>
@@ -52,7 +52,7 @@ class IndexView {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link<?php if ($title == "F1 Home") {?> active <?php }?>" aria-current="page" href="<?= BASE_URL ?>/index">Home</a>
+                                <a class="nav-link<?php if ($title == "F1 Home") {?> active <?php }?>" aria-current="page" href="<?= BASE_URL ?>/">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link<?php if ($title == "F1 Teams") {?> active <?php }?>" href="<?= BASE_URL ?>/team/index">Teams</a>
