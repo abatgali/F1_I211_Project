@@ -3,7 +3,7 @@
  * Author: Sierra Braun
  * Date: 4/5/22
  * File: driver_index_view.class.php
- * Description: displays drivers
+ * Description: template for the driver index page
  */
 
 class DriverIndexView extends IndexView {

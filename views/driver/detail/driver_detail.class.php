@@ -3,7 +3,7 @@
  * Author: Anant Batgali
  * Date: 4/17/22
  * File: driver_detail.class.php
- * Description:
+ * Description: The page displays additional info about the driver after user navigates from driver index view
  */
 
 class DriverDetail extends DriverIndexView
@@ -64,6 +64,7 @@ class DriverDetail extends DriverIndexView
                                 <strong>Podiums: </strong><?= $podiums ?><br>
                                 <strong>Points: </strong><?= $points ?><br>
                                 <strong>Championships: </strong><?= $championships ?><br>
+                                <a class="btn btn-primary" href="#" role="button">Edit</a>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,7 @@
  * Author: Anant Batgali
  * Date: 4/2/22
  * File: driver_model.class.php
- * Description: retrieves F1 drivers that exist in the database
+ * Description: retrieves F1 drivers' data as per the function call from driver controller
  */
 
 class DriverModel
@@ -73,6 +73,7 @@ class DriverModel
         return $drivers;
     }
 
+    // method to retrieve details of a selected driver
     public function driverInfo($id)
     {
         $sql = "SELECT * FROM ". $this->tblDriver. " WHERE driverID = ". $id;

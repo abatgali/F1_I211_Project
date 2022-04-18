@@ -3,7 +3,7 @@
  * Author: Anant Batgali
  * Date: 4/6/22
  * File: driver_controller.class.php
- * Description:
+ * Description: processes requests when user interacts with any of the driver pages
  */
 
 class DriverController
