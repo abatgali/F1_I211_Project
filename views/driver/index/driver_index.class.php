@@ -31,6 +31,8 @@ class DriverIndex extends DriverIndexView
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $rNum;?></h5>
                         <p class="card-text"><?php echo $lastName;?></p>
+                        <input id="favorites" type="checkbox" name="favorite">
+                        <label for="favorites" style="font-size: small">Favorite</label>
                     </div>
                 </a>
 
