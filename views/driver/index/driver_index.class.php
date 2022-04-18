@@ -16,7 +16,7 @@ class DriverIndex extends DriverIndexView
         ?>
         <div class="row row-cols-2">
         <?php
-        $i = 0;
+
         foreach ($drivers as $driver) {
 
             $driverID = $driver->getDriverID();
@@ -26,11 +26,14 @@ class DriverIndex extends DriverIndexView
             ?>
 <!--        <div class="g-col-6 m-2">-->
             <div class="card g-col-6 m-3" style="width: 18rem;">
+                <a href="<?php echo BASE_URL."/driver/detail/".$driverID; ?>">
+
                 <img src="<?php echo BASE_URL."/static/img/drivers/".$driverID.".jpeg"; ?>" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $rNum;?></h5>
-                    <p class="card-text"><?php echo $lastName;?></p>
-                </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $rNum;?></h5>
+                        <p class="card-text"><?php echo $lastName;?></p>
+                    </div>
+                </a>
                 <!--<ul class="list-group list-group-flush">
                     <li class="list-group-item">An item</li>
                     <li class="list-group-item">A second item</li>
@@ -43,18 +46,7 @@ class DriverIndex extends DriverIndexView
             <?php
             }
 
-           /*
-            * extra details that can be displayed if user clicks on the driver
 
-            $firstName = $driver->getFirstName();
-            $dob = $driver->getDateOfBirth();
-            $country = $driver->getCountry();
-            $podiums = $driver->getPodiums();
-            $championships = $driver->getChampionships();
-            $points = $driver->getCareerPoints();
-            $team = $driver->getTeam();
-
-           */
             ?>
         <!--closing grid div-->
         </div>

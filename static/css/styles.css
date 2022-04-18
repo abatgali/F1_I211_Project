@@ -1,3 +1,11 @@
 .homepageImages {
     width: 100%;
 }
+
+.imageDriverDetail {
+    max-width: 30%;
+}
+
+.imageTeam {
+    max-width: 60%;
+}
