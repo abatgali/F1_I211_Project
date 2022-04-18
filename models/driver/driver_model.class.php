@@ -3,7 +3,7 @@
  * Author: Anant Batgali
  * Date: 4/2/22
  * File: driver_model.class.php
- * Description: retrieves F1 drivers that exist in the database
+ * Description: retrieves F1 drivers' data as per the function call from driver controller
  */
 
 class DriverModel
@@ -45,7 +45,7 @@ class DriverModel
          * FROM ...
          * WHERE ...
          */
-        $sql = "SELECT * FROM " . $this->tblDriver;
+        $sql = "SELECT * FROM " . $this->tblDriver . " ORDER BY careerPoints DESC";
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -73,4 +73,21 @@ class DriverModel
         return $drivers;
     }
 
+    // method to retrieve details of a selected driver
+    public function driverInfo($id)
+    {
+        $sql = "SELECT * FROM ". $this->tblDriver. " WHERE driverID = ". $id;
+
+        $query = $this->dbConnection->query($sql);
+
+        if (!$query)
+            return false;
+
+        if ($query->num_rows == 0)
+            return 0;
+
+        $obj = $query->fetch_object();
+
+        return new Driver(stripslashes($obj->driverID),stripslashes($obj->firstName), stripslashes($obj->lastName), stripslashes($obj->dateOfBirth), stripslashes($obj->country), stripslashes($obj->rNum), stripslashes($obj->podiums), stripslashes($obj->careerPoints), stripslashes($obj->championships), stripslashes($obj->team));
+    }
 }

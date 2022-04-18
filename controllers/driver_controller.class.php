@@ -3,7 +3,7 @@
  * Author: Anant Batgali
  * Date: 4/6/22
  * File: driver_controller.class.php
- * Description:
+ * Description: processes requests when user interacts with any of the driver pages
  */
 
 class DriverController
@@ -22,7 +22,7 @@ class DriverController
         $drivers = $this->driver_model->listAllDrivers();
         if (!$drivers) {
             //display an error
-            $message = "There was a problem displaying movies.";
+            $message = "There was a problem displaying drivers.";
             echo $message;
             //$this->error($message);
             return;
@@ -31,5 +31,20 @@ class DriverController
         $view = new DriverIndex();
         $view->display($drivers);
     }
+
+    // display info of the selected driver
+    public function detail($id) {
+
+        $driver = $this->driver_model->driverInfo($id);
+
+        if(!$driver) {
+            return;
+        }
+
+        $view = new DriverDetail();
+        $view->displayDriver($driver);
+
+    }
+
 
 }
