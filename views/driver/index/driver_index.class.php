@@ -24,11 +24,11 @@ class DriverIndex extends DriverIndexView
             $rNum = $driver->getRNum();
 
             ?>
-            <div class="card g-col-6 m-3 shadow-sm noDecor" style="width: 18rem;">
-                <a href="<?php echo BASE_URL."/driver/detail/".$driverID; ?>">
+            <div class="card g-col-6 m-3 shadow-sm noDecor" style="width: 18rem; padding-top: 10px;">
+                <a style="text-decoration: none; color: #3A1E1E" href="<?php echo BASE_URL."/driver/detail/".$driverID; ?>">
 
                 <img src="<?php echo BASE_URL."/static/img/drivers/".$driverID.".jpeg"; ?>" class="card-img-top">
-                    <div class="card-body">
+                    <div class="card-body" >
                         <h5 class="card-title"><?php echo $rNum;?></h5>
                         <p class="card-text"><?php echo $lastName;?></p>
                         <input id="favorites" type="checkbox" name="favorite">

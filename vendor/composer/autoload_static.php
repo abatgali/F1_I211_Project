@@ -30,6 +30,8 @@ class ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d
         'TeamController' => __DIR__ . '/../..' . '/controllers/team_controller.class.php',
         'TeamModel' => __DIR__ . '/../..' . '/models/team/team_model.class.php',
         'TeamView' => __DIR__ . '/../..' . '/views/team/index/team_view.class.php',
+        'UserController' => __DIR__ . '/../..' . '/controllers/user_controller.class.php',
+        'UserModel' => __DIR__ . '/../..' . '/models/users/user_model.class.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

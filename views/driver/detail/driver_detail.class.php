@@ -30,7 +30,7 @@ class DriverDetail extends DriverIndexView
             <div class="column imageDriverDetail me-3">
                 <img src="<?php echo BASE_URL . "/static/img/drivers/" . $id . ".jpeg"; ?>" class="img-fluid rounded shadow-lg">
             </div>
-            <div class="column w-50">
+            <div class="column w-50" style="min-width: 84%;">
                 <div class="accordion" id="accordionPanelsStayOpenExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -44,7 +44,7 @@ class DriverDetail extends DriverIndexView
                              aria-labelledby="panelsStayOpen-headingOne">
                             <div class="accordion-body">
 
-                                <img id="teamImg" src="<?php  if ($team != 7) echo BASE_URL . "/static/img/teams/" . $team . ".jpeg";
+                                <img id="teamImg" style="max-width: 100%;" src="<?php  if ($team != 7) echo BASE_URL . "/static/img/teams/" . $team . ".jpeg";
                                 else echo BASE_URL . "/static/img/teams/" . $team . ".png";?>" class="rounded mx-auto d-block imageTeam " >
 
                             </div>
