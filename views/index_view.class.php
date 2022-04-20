@@ -64,7 +64,7 @@ class IndexView {
                                 <a class="nav-link <?php if ($title == "F1 Cars") {?> active <?php }?>" href="<?= BASE_URL ?>/car/index">Cars</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">Log In</a>
+                                <a class="nav-link <?php if ($title == "Login") {?> active <?php }?>" href="<?= BASE_URL ?>/login/index">Log In</a>
                             </li>
                         </ul>
                     </div>
