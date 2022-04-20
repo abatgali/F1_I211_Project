@@ -17,7 +17,8 @@ class Database {
         'tblCars' => 'cars',
         'tblDrivers' => 'drivers',
         'tblTeams' => 'teams',
-        'tblUsers' => 'users'
+        'tblUsers' => 'users',
+        'tblUserFav' => 'user_favorites'
     );
 
     //define the database connection object
@@ -69,5 +70,10 @@ class Database {
     //returns the name of the table storing users
     public function getUsersTable() {
         return $this->param['tblUsers'];
+    }
+
+    //returns the users favorite drivers
+    public function getUserFavoritesTable() {
+        return $this->param['tblUserFav'];
     }
 }
