@@ -28,7 +28,7 @@ class DriverDetail extends DriverIndexView
 
         <div class="row m-4">
             <div class="column imageDriverDetail me-3">
-                <img src="<?php echo BASE_URL . "/static/img/drivers/" . $id . ".jpeg"; ?>" class="img-fluid rounded shadow-lg">
+                <img style="min-width: 400px;" src="<?php echo BASE_URL . "/static/img/drivers/" . $id . ".jpeg"; ?>" class="img-fluid rounded shadow-lg">
             </div>
             <div class="column w-50" style="min-width: 84%;">
                 <div class="accordion" id="accordionPanelsStayOpenExample">
