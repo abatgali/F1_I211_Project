@@ -22,9 +22,9 @@ class ResetConfirm extends IndexView {
             <span style="float: left">
                 <?php
                 if ($result) { //if the user has logged in, display the logout button
-                    echo "Want to log out? <a href='index.php?action=logout'>Logout</a>";
+                    echo "Want to log out? <a href='<?= BASE_URL ?>/user/logout'>Logout</a>";
                 } else { //if the user has not logged in, display the login button
-                    echo "Reset password? <a href='index.php?action=reset'>Reset</a>";
+                    echo "Reset password? <a href='<?= BASE_URL ?>/user/do_reset'>Reset</a>";
                 }
                 ?>
             </span>
