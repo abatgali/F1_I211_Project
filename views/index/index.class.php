@@ -18,7 +18,7 @@ class Index extends IndexView
                 <div class="input-group mb-3 shadow-sm">
                     <input type="text" class="form-control" placeholder="" name="terms" aria-label="Search input" aria-describedby="button-addon2" required>
                     <button class="btn btn-outline-dark" type="submit" ">Search</button>
-
+                </div>
 
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner homepageImages">
