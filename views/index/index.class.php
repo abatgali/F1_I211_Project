@@ -25,7 +25,7 @@ class Index extends IndexView
                 <div class="carousel-item active">
                     <img src="static/img/unsplash5.jpeg" class="d-block w-100" alt="racing">
                     <div class="carousel-caption d-none d-md-block">
-                        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='<?=BASE_URL?>/user/register'">Create Account</button>
+                        <button  type="button" class="btn btn-primary btn-lg" onclick="location.href='<?=BASE_URL?>/user/register'">Create Account</button>
                     </div>
                 </div>
                 <div class="carousel-item">

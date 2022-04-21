@@ -27,7 +27,7 @@ class Verify extends IndexView {
                 }
                 ?>
             </span>
-            <span style="float: right">Reset password? <a href="../../../index.php">Reset</a></span>
+            <span style="float: right">Reset password? <a style="color: #A7030E;" href="../../../index.php">Reset</a></span>
         </div>
         <?php
         parent::displayFooter();
