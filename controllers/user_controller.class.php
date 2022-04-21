@@ -30,6 +30,8 @@ class UserController {
         //display result
         $view = new Register();
         $view->display($result);
+
+        //if registration is successful, then display user profile page with favorites info
     }
 
     //display the login form
