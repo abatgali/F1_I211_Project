@@ -25,7 +25,7 @@ class Login extends IndexView {
             </div>
 
             <!--            <button type="submit" class="btn btn-primary">Submit</button>-->
-            <div><input type="submit" class="btn btn-primary" value="Login"></div>
+            <div><input style="background-color: #A7030E; border: none;" type="submit" class="btn btn-primary" value="Login"></div>
         </form>
 
 
@@ -40,7 +40,7 @@ class Login extends IndexView {
         </div>
         <div>-->
             <br>
-            <span style="float: left">Don't have an account? <a href="<?= BASE_URL ?>/user/register">Register</a></span>
+            <span style="float: left">Don't have an account? <a style="color: #A7030E;" href="<?= BASE_URL ?>/user/register">Register</a></span>
         </div>
 
         <?php
