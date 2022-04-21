@@ -12,11 +12,25 @@ class Index extends IndexView
     {
         parent::displayHeader("F1 Home")
         ?>
+
         <div class="mx-auto w-50 mt-3">
             <form action="<?php echo BASE_URL. "/driver/search"?>">
                 <div class="input-group mb-3 shadow-sm">
                     <input type="text" class="form-control" placeholder="" name="terms" aria-label="Search input" aria-describedby="button-addon2" required>
                     <button class="btn btn-outline-dark" type="submit" ">Search</button>
+
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner homepageImages">
+                <div class="carousel-item active">
+                    <img src="static/img/unsplash5.jpeg" class="d-block w-100" alt="racing">
+                    <div class="carousel-caption d-none d-md-block">
+                        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='<?=BASE_URL?>/user/register'">Create Account</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="static/img/unsplash2.jpeg" class="d-block w-100 " alt="...">
+
                 </div>
             </form>
         </div>

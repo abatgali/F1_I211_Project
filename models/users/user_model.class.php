@@ -34,7 +34,7 @@ class UserModel
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
         //construct an INSERT query
-        $sql = "INSERT INTO " . $this->db->getUserTable() . " VALUES(NULL, '$username', '$hashed_password', '$email', '$firstname', '$lastname')";
+        $sql = "INSERT INTO" . $this->db->getUsersTable() . " VALUES(NULL, '$username', '$hashed_password', '$email', '$firstname', '$lastname')";
 
         //execute the query and return true if successful or false if failed
         if ($this->dbConnection->query($sql) === TRUE) {
@@ -52,7 +52,7 @@ class UserModel
         $password = trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING));
 
         //sql statement to filter the users table data with a username
-        $sql = "SELECT password FROM " . $this->db->getUserTable() . " WHERE username='$username'";
+        $sql = "SELECT password FROM " . $this->db->getUsersTable() . " WHERE username='$username'";
 
         //execute the query
         $query = $this->dbConnection->query($sql);
