@@ -19,22 +19,9 @@ class Index extends IndexView
                     <input type="text" class="form-control" placeholder="" name="terms" aria-label="Search input" aria-describedby="button-addon2" required>
                     <button class="btn btn-outline-dark" type="submit" ">Search</button>
                 </div>
-
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner homepageImages">
-                <div class="carousel-item active">
-                    <img src="static/img/unsplash5.jpeg" class="d-block w-100" alt="racing">
-                    <div class="carousel-caption d-none d-md-block">
-                        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='<?=BASE_URL?>/user/register'">Create Account</button>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="static/img/unsplash2.jpeg" class="d-block w-100 " alt="...">
-
-                </div>
-            </form>
+        </form>
         </div>
-        <div class="container w-50 m-4">
+        <div class="container m-4 w-50">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner homepageImages">
                     <div class="carousel-item active">
