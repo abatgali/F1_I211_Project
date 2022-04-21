@@ -17,9 +17,6 @@ require_once('vendor/autoload.php');
 //load the dispatcher that dissects a request URL
 new Dispatcher();
 
-//create an object of UserController
-$user_controller = new UserController();
-
 /*//retrieve the action from a querystring variable named "action"
 if (!($action = filter_input(INPUT_GET, "action", FILTER_SANITIZE_STRING))) {
     $action = "index";  //default action
