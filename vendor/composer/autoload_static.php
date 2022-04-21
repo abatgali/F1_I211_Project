@@ -26,12 +26,20 @@ class ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d
         'HomeController' => __DIR__ . '/../..' . '/controllers/home_controller.class.php',
         'Index' => __DIR__ . '/../..' . '/views/index/index.class.php',
         'IndexView' => __DIR__ . '/../..' . '/views/index_view.class.php',
+        'Login' => __DIR__ . '/../..' . '/views/login/login.class.php',
+        'Logout' => __DIR__ . '/../..' . '/views/logout/logout.class.php',
+        'Register' => __DIR__ . '/../..' . '/views/index/register.class.php',
+        'Reset' => __DIR__ . '/../..' . '/views/reset/reset.class.php',
+        'ResetConfirm' => __DIR__ . '/../..' . '/views/reset/reset_confirm.php',
+        'ResultView' => __DIR__ . '/../..' . '/views/driver/search/result_view.class.php',
         'Team' => __DIR__ . '/../..' . '/models/team/team.class.php',
         'TeamController' => __DIR__ . '/../..' . '/controllers/team_controller.class.php',
         'TeamModel' => __DIR__ . '/../..' . '/models/team/team_model.class.php',
         'TeamView' => __DIR__ . '/../..' . '/views/team/index/team_view.class.php',
         'UserController' => __DIR__ . '/../..' . '/controllers/user_controller.class.php',
+        'UserError' => __DIR__ . '/../..' . '/views/error/user_error.class.php',
         'UserModel' => __DIR__ . '/../..' . '/models/users/user_model.class.php',
+        'Verify' => __DIR__ . '/../..' . '/views/login/verify.class.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

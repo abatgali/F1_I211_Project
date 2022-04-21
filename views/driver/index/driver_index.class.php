@@ -14,6 +14,16 @@ class DriverIndex extends DriverIndexView
 
         parent::displayHeader("F1 Drivers");
         ?>
+        <!--Search bar -->
+        <div class="mx-auto w-50 mt-3">
+            <form action="<?php echo BASE_URL. "/driver/search"?>">
+                <div class="input-group mb-3 shadow-sm">
+                    <input type="text" class="form-control" name="terms" placeholder="" aria-label="Search input" aria-describedby="button-addon2" required>
+                    <button class="btn btn-outline-dark" type="submit" >Search</button>
+                </div>
+            </form>
+        </div>
+
         <div class="row row-cols-2">
         <?php
 
