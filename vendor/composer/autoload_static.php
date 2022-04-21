@@ -28,7 +28,7 @@ class ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d
         'IndexView' => __DIR__ . '/../..' . '/views/index_view.class.php',
         'Login' => __DIR__ . '/../..' . '/views/user/login/login.class.php',
         'Logout' => __DIR__ . '/../..' . '/views/user/logout/logout.class.php',
-        'Register' => __DIR__ . '/../..' . '/views/index/register.class.php',
+        'Register' => __DIR__ . '/../..' . '/views/user/register/register.class.php',
         'Reset' => __DIR__ . '/../..' . '/views/user/reset/reset.class.php',
         'ResetConfirm' => __DIR__ . '/../..' . '/views/user/reset/reset_confirm.php',
         'ResultView' => __DIR__ . '/../..' . '/views/driver/search/result_view.class.php',

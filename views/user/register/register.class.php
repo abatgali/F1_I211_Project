@@ -14,7 +14,7 @@ class Register extends IndexView {
             <div class="top-row">CREATE AN ACCOUNT</div>
             <div class="middle-row">
                 <p>Please complete the entire form. All fields are required.</p>
-                <form method="post" action="index.php?action=register">
+                <form method="post" action="../../../index.php">
                     <div><input type="text" name="username" style="width: 99%" required placeholder="Username"></div>
                     <div><input type="password" name="password" style="width: 99%" required minlength="5" placeholder="Password, 5 characters minimum"></div>
                     <div><input type="email" name="email" style="width: 99%" required="" placeholder="Email"></div>

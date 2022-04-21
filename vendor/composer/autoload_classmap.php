@@ -27,7 +27,7 @@ return array(
     'IndexView' => $baseDir . '/views/index_view.class.php',
     'Login' => $baseDir . '/views/user/login/login.class.php',
     'Logout' => $baseDir . '/views/user/logout/logout.class.php',
-    'Register' => $baseDir . '/views/index/register.class.php',
+    'Register' => $baseDir . '/views/user/register/register.class.php',
     'Reset' => $baseDir . '/views/user/reset/reset.class.php',
     'ResetConfirm' => $baseDir . '/views/user/reset/reset_confirm.php',
     'ResultView' => $baseDir . '/views/driver/search/result_view.class.php',
