@@ -90,4 +90,43 @@ class DriverModel
 
         return new Driver(stripslashes($obj->driverID),stripslashes($obj->firstName), stripslashes($obj->lastName), stripslashes($obj->dateOfBirth), stripslashes($obj->country), stripslashes($obj->rNum), stripslashes($obj->podiums), stripslashes($obj->careerPoints), stripslashes($obj->championships), stripslashes($obj->team));
     }
+
+
+    // search drivers
+    public function search($searchTerms)
+    {
+        // fields to search
+        $fields = array("firstName", "lastName", "dateOfBirth", "country", "rNum");
+
+        // creating the sql query
+        $sql = "SELECT * FROM ".$this->tblDriver." WHERE ";
+        foreach ($fields as $column) {
+            foreach ($searchTerms as $term) {
+
+                $sql .= "$column LIKE '%".$term."%' OR ";
+            }
+        }
+
+        // removing the extra "OR" from the query
+        $sql = rtrim($sql, " OR ");
+
+        // executing sql query
+        if (!$this->dbConnection->query($sql))
+            echo "query failed";
+
+        $result = $this->dbConnection->query($sql);
+
+        // retrieving drivers from result
+        $drivers = [];
+        while ($obj = $result->fetch_object()) {
+
+            $driver = new Driver(stripslashes($obj->driverID), stripslashes($obj->firstName), stripslashes($obj->lastName),
+                $obj->dateOfBirth, stripslashes($obj->country), stripslashes($obj->rNum), stripslashes($obj->podiums),
+                stripslashes($obj->careerPoints), stripslashes($obj->championships), stripslashes($obj->team));
+
+            $drivers[] = $driver;
+        }
+
+        return $drivers;
+    }
 }

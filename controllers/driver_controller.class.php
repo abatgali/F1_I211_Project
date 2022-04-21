@@ -24,7 +24,7 @@ class DriverController
             //display an error
             $message = "There was a problem displaying drivers.";
             echo $message;
-            //$this->error($message);
+
             return;
         }
         // display all drivers
@@ -46,5 +46,25 @@ class DriverController
 
     }
 
+    // search and display results
+    public function search()
+    {
+        // getting user input
+        if(isset($_GET["terms"])) {
 
+            $terms = $_GET["terms"];
+            $searchTerms = explode(" ", filter_input(INPUT_GET, "terms"));
+        }
+        else {
+            $error = new UserError();
+            $error->display("Missing input");
+            return;
+        }
+
+        // calling the search function in driver model
+        $output = $this->driver_model->search($searchTerms);
+
+        $view = new ResultView();
+        $view->display($terms, $output);
+    }
 }

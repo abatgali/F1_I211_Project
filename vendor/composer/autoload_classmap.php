@@ -30,6 +30,7 @@ return array(
     'Register' => $baseDir . '/views/index/register.class.php',
     'Reset' => $baseDir . '/views/reset/reset.class.php',
     'ResetConfirm' => $baseDir . '/views/reset/reset_confirm.php',
+    'ResultView' => $baseDir . '/views/driver/search/result_view.class.php',
     'Team' => $baseDir . '/models/team/team.class.php',
     'TeamController' => $baseDir . '/controllers/team_controller.class.php',
     'TeamModel' => $baseDir . '/models/team/team_model.class.php',

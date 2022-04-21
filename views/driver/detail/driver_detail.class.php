@@ -15,7 +15,7 @@ class DriverDetail extends DriverIndexView
         $id = $driver->getDriverID();
         $firstName = $driver->getFirstName();
         $lastName = $driver->getLastName();
-        $dob = $driver->getDateOfBirth();
+        $dob = date_format(date_create($driver->getDateOfBirth()), "F d Y");
         $country = $driver->getCountry();
         $podiums = $driver->getPodiums();
         $championships = $driver->getChampionships();
