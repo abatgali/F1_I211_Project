@@ -16,7 +16,7 @@ class TeamView extends IndexView{
         <div class="container m-5">
             <h5>Season 2022 Teams</h5>
             <hr>
-        <table class="table">
+        <table class="table table-striped table-hover">
             <thead>
                 <th scope="col">ID</th>
                 <th scope="col">Team Name</th>
