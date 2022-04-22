@@ -14,7 +14,6 @@ class ResultView extends IndexView
 
 
 ?>
-
         <div class="container m-4">
 
             <h3>Search Results for <i><?= $terms ?></i></h3><hr>

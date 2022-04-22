@@ -67,4 +67,22 @@ class DriverController
         $view = new ResultView();
         $view->display($terms, $output);
     }
+
+    //autosuggestion
+    public function suggest($terms) {
+        //retrieve query terms
+        $query_terms = urldecode(trim($terms));
+        $drivers = $this->driver_model->search($query_terms);
+
+
+        //retrieve all driver names and store them in an array
+        $titles = array();
+        if ($drivers) {
+            foreach ($drivers as $driver) {
+                $titles[] = $driver->getFirstName();
+            }
+        }
+
+        echo json_encode($titles);
+    }
 }
