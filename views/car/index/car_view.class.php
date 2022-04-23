@@ -15,7 +15,7 @@ class CarView extends IndexView {
 
         ?>
         <div class="container mt-3">
-        <table class="table">
+        <table class="table table-striped table-hover">
             <thead>
                 <th>ID</th>
                 <th>Car</th>

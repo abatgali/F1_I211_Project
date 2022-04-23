@@ -16,39 +16,57 @@ class UserController {
         $this->user_model = new UserModel();
     }
 
-    //display the registration form.
-    public function index() {
-        $view = new Index();
-        $view->display();
-    }
-
+    //display the registration form and/or
     //create a user account by calling the addUser method of a userModel object
     public function register() {
-        //call the addUser method of the UserModel object
-        $result = $this->user_model->add_user();
 
-        //display result
-        $view = new Register();
-        $view->display($result);
+        // display registration page
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $view = new Register();
+            $view->display();
+        }
 
-        //if registration is successful, then display user profile page with favorites info
+        // work with submitted form details
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //call the addUser method of the UserModel object
+            $result = $this->user_model->add_user();
+
+            //if registration is successful, then display user profile page with favorites info
+            if ($result) {
+                $this->login("successful");
+            }
+            else
+                $this->login("failed");
+            // display error msg: Registration unsuccessful or something
+        }
+
+
     }
 
     //display the login form
-    public function login() {
+    public function login($attempt = "") {
         $view = new Login();
-        $view->display();
+        $view->display($attempt);
     }
 
     //verify username and password by calling the verifyUser method defined in the model.
     //It then calls the display method defined in a view class and pass true or false.
     public function verify() {
+
+        // by default setting attempt to failed
+        $attempt = "failed";
+
         //call the verifyUser method of the UserModel object
         $result = $this->user_model->verify_user();
 
-        //display result
-        $view = new Verify();
-        $view->display($result);
+        // check result to direct user accordingly
+        if ($result) {
+
+        }
+        else
+            // letting user know login failed
+            $this->login($attempt);
+
     }
 
     //log out a user by calling the logout method defined in the model and then

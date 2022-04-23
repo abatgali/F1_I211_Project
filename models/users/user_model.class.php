@@ -11,11 +11,13 @@ class UserModel
     //private data members
     private $db;
     private $dbConnection;
+    private $tblUsers;
 
     public function __construct()
     {
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
+        $this->tblUsers = $this->db->getUsersTable();
     }
 
     //add a user into the "users" table in the database
@@ -33,13 +35,17 @@ class UserModel
         $firstname = filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_STRING);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
+        if (empty($username) || empty($password) || empty($lastname) || empty($firstname) || empty($email)) {
+            throw new Exception("Values were missing in one or more fields. All fields must be filled.");
+        }
         //construct an INSERT query
-        $sql = "INSERT INTO" . $this->db->getUsersTable() . " VALUES(NULL, '$username', '$hashed_password', '$email', '$firstname', '$lastname')";
+        $sql = "INSERT INTO " . $this->tblUsers. " VALUES(NULL, '$username', '$hashed_password', '$email', '$firstname', '$lastname')";
 
         //execute the query and return true if successful or false if failed
         if ($this->dbConnection->query($sql) === TRUE) {
             return true;
         } else {
+            echo $this->dbConnection->query($sql);
             return false;
         }
     }

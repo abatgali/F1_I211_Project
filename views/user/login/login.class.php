@@ -7,12 +7,41 @@
  */
 class Login extends IndexView {
 
-    public function display() {
+    public function display($attempt = "") {
         parent::displayHeader("Login");
+
+        if ($attempt === "failed") {
+            // tell user by displaying toast msg
         ?>
 
+        <div class="align-items-center text-white bg-danger border-0 opacity-50"  aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Login attempt failed, try again or don't.
+                </div>
+                <!--<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>-->
+            </div>
+        </div>
+            <?php
+        }
+
+        if ($attempt === "successful") {
+
+        ?>
+            <div class="align-items-center text-white bg-success border-0 opacity-50"  aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+            Registered Successfully.
+                </div>
+                <!--<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>-->
+            </div>
+        </div>
+            <?php
+
+        }
+            ?>
         <div class="container m-5 w-50">
-        <form method="post" action="../../../index.php">
+        <form method="post" action="<?php echo BASE_URL."/user/verify"; ?>">
             <div class="mb-3">
                 <h1 class="top-row">Log In</h1>
                 <p>Please enter your username and password.</p>
@@ -21,7 +50,7 @@ class Login extends IndexView {
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="passowrd">
+                <input type="password" class="form-control" id="password">
             </div>
 
             <!--            <button type="submit" class="btn btn-primary">Submit</button>-->

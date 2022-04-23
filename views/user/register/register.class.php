@@ -3,39 +3,39 @@
  * Author: Piper Varney
  * Date: 4/19/22
  * File: register.class.php
- * Description:
+ * Description: Displays registration form
  */
 class Register extends IndexView {
 
-    public function display($result) {
+    public function display() {
         parent::displayHeader("Register");
 
         ?>
 
         <div class="container m-5 w-50">
-            <form method="post" action="index.php?action=register">
+            <form method="post" action="<?php echo BASE_URL."/user/register"; ?>">
                 <div class="mb-3">
                     <h1 class="top-row">Create an account</h1>
                     <p>Please complete the entire form. All fields are required.</p>
                     <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="passowrd">
+                    <input type="password" class="form-control" name="password">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email">
+                    <input type="email" class="form-control" name="email">
                     <div id="emailHelp" class="form-text">We'll always share your information with everyone.</div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="fname">
+                    <input type="text" class="form-control" name="fname">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lname">
+                    <input type="text" class="form-control" name="lname">
                 </div>
 
                 <div class="mb-3 form-check">

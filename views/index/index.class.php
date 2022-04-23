@@ -35,7 +35,6 @@ class Index extends IndexView
                         <th>#</th>
                         <th>Grand Prix</th>
                         <th class="align-right">Date</th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
