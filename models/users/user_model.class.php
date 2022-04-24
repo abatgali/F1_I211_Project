@@ -78,7 +78,7 @@ class UserModel
             $result_row = $query->fetch_assoc();
             $hash = $result_row['password'];
             if (password_verify($password, $hash)) {
-                if (!isset($_SESSION))
+                if (!isset($_SESSION["user"]))
                 {
                     session_start();
                     //$_SESSION["user"] = "";
@@ -135,7 +135,7 @@ class UserModel
     public function userInfo($username)
     {
         // retrieve details from the database
-        $sql = "SELECT * FROM ". $this->tblUsers. " WHERE username =". $username;
+        $sql = "SELECT userID, username, email, firstname, lastname FROM ". $this->tblUsers. " WHERE username = '$username'";
 
         $query = $this->dbConnection->query($sql);
 

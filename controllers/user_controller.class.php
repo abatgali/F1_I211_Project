@@ -31,7 +31,8 @@ class UserController {
             //call the addUser method of the UserModel object
             $result = $this->user_model->add_user();
 
-            //if registration is successful, then display user profile page with favorites info
+            //if registration is successful, then redirect user to login page
+            // with a confirmation message
             if ($result) {
                 $this->login("successful");
             }
@@ -79,7 +80,6 @@ class UserController {
     {
         //check if user is logged in
         //if (isset($_SESSION["user"])) {
-        echo "user '$username' logged in";
 
         try {
 
