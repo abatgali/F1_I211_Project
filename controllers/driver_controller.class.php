@@ -46,6 +46,42 @@ class DriverController
 
     }
 
+
+    //display a driver in a form for editing
+    public function edit($id) {
+        //retrieve the specific driver
+        $driver = $this->driver_model->driverInfo($id);
+
+        if (!$driver) {
+            //display an error
+            $message = "There was a problem displaying the movie id='" . $id . "'.";
+            $this->error($message);
+            return;
+        }
+
+        $view = new DriverEdit();
+        $view->display($driver);
+    }
+
+    //update a movie in the database
+    public function update($id) {
+        //update the movie
+        $update = $this->driver_model->update_driver($id);
+        if (!$update) {
+//            //handle errors
+//            $message = "There was a problem updating the driver id='" . $id . "'.";
+//            $this->error($message);
+//            return;
+        }
+
+        //display the updateed movie details
+        $confirm = "The driver was successfully updated.";
+        $driver = $this->driver_model->driverInfo($id);
+
+        $view = new DriverDetail();
+        $view->displayDriver($driver, $confirm);
+    }
+
     // search and display results
     public function search()
     {

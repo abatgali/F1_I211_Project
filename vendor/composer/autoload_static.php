@@ -20,6 +20,7 @@ class ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d
         'Driver' => __DIR__ . '/../..' . '/models/driver/driver.class.php',
         'DriverController' => __DIR__ . '/../..' . '/controllers/driver_controller.class.php',
         'DriverDetail' => __DIR__ . '/../..' . '/views/driver/detail/driver_detail.class.php',
+        'DriverEdit' => __DIR__ . '/../..' . '/views/driver/edit/driver_edit.class.php',
         'DriverIndex' => __DIR__ . '/../..' . '/views/driver/index/driver_index.class.php',
         'DriverIndexView' => __DIR__ . '/../..' . '/views/driver/driver_index_view.class.php',
         'DriverModel' => __DIR__ . '/../..' . '/models/driver/driver_model.class.php',

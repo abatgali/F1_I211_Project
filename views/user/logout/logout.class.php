@@ -16,8 +16,8 @@ class Logout extends IndexView {
             <p>You have successfully logged out.</p>
         </div>
         <div class="bottom-row">
-            <span style="float: left">Already have an account? <a href="../../../index.php">Login</a></span>
-            <span style="float: right">Don't have an account? <a href="../../../index.php">Register</a></span>
+            <span style="background-color: #A7030E; border: none; float: left;">Already have an account? <a href="../../../index.php">Login</a></span>
+            <span style=" float: left;">Don't have an account? <a style="color: #A7030E;" href="../../../index.php">Register</a></span>
         </div>
 
         <?php

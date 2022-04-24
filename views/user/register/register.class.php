@@ -43,12 +43,12 @@ class Register extends IndexView {
                     <label class="form-check-label" for="exampleCheck1">I have read and agree to the Gettysburg Address</label>
                 </div>
                 <!--            <button type="submit" class="btn btn-primary">Submit</button>-->
-                <div><input type="submit" class="btn btn-primary" value="Register"></div>
+                <div><input style="background-color: #A7030E; border: none; " type="submit" class="btn btn-primary" value="Register"></div>
             </form>
 
             <div>
                 <br>
-                <span style="float: left">Already have an account? <a href="<?= BASE_URL ?>/user/login">Login</a></span>
+                <span style="float: left">Already have an account? <a style="color: #A7030E;" href="<?= BASE_URL ?>/user/login">Login</a></span>
                 <br>
             </div>
 

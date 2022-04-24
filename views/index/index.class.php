@@ -208,22 +208,42 @@ class Index extends IndexView
                         <div class="carousel-item active">
                             <img src="static/img/unsplash5.jpeg" class="d-block w-100" alt="racing">
                             <div class="carousel-caption d-none d-md-block">
-                                <button type="button" class="btn btn-primary btn-lg"
+                                <button style="background-color: #A7030E; border: none;" type="button" class="btn btn-primary btn-lg"
                                         onclick="location.href='<?= BASE_URL ?>/user/register'">Create Account
                                 </button>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="static/img/unsplash2.jpeg" class="d-block w-100 " alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <button style="background-color: #A7030E; border: none;" type="button" class="btn btn-primary btn-lg"
+                                        onclick="location.href='<?= BASE_URL ?>/user/register'">Create Account
+                                </button>
+                            </div>
                         </div>
                         <div class="carousel-item">
                             <img src="static/img/unsplash3.jpeg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <button style="background-color: #A7030E; border: none;" type="button" class="btn btn-primary btn-lg"
+                                        onclick="location.href='<?= BASE_URL ?>/user/register'">Create Account
+                                </button>
+                            </div>
                         </div>
                         <div class="carousel-item">
                             <img src="static/img/unsplash1.jpeg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <button style="background-color: #A7030E; border: none;" type="button" class="btn btn-primary btn-lg"
+                                        onclick="location.href='<?= BASE_URL ?>/user/register'">Create Account
+                                </button>
+                            </div>
                         </div>
                         <div class="carousel-item">
                             <img src="static/img/unsplash4.jpeg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <button style="background-color: #A7030E; border: none;" type="button" class="btn btn-primary btn-lg"
+                                        onclick="location.href='<?= BASE_URL ?>/user/register'">Create Account
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"

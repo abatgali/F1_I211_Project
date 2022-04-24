@@ -64,7 +64,7 @@ class DriverDetail extends DriverIndexView
                                 <strong>Podiums: </strong><?= $podiums ?><br>
                                 <strong>Points: </strong><?= $points ?><br>
                                 <strong>Championships: </strong><?= $championships ?><br>
-                                <a class="btn btn-primary" href="#" role="button">Edit</a>
+                                <a class="btn btn-primary" href="<?= BASE_URL ?>/driver/edit/<?= $id ?>" role="button">Edit</a>
                             </div>
                         </div>
                     </div>

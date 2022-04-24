@@ -130,4 +130,26 @@ class DriverModel
         return $drivers;
     }
 
+    public function update_driver($id) {
+        //if the script did not received post data, display an error message and then terminite the script immediately
+        if (!filter_has_var(INPUT_POST, 'podiums') ||
+            !filter_has_var(INPUT_POST, 'points') ||
+            !filter_has_var(INPUT_POST, 'championships')) {
+
+            echo "didn't work!";
+        }
+
+        //retrieve data for the new movie; data are sanitized and escaped for security.
+        $podiums = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'podiums', FILTER_DEFAULT)));
+        $careerPoints = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'points', FILTER_DEFAULT)));
+        $championships = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'championships', FILTER_DEFAULT)));
+
+        //query string for update
+        $sql = "UPDATE " . $this->tblDriver .
+            " SET podiums='$podiums', careerPoints='$careerPoints', championships='$championships' WHERE driverID='$id'";
+
+        //execute the query
+        return $this->dbConnection->query($sql);
+    }
+
 }
