@@ -37,6 +37,7 @@ return array(
     'TeamController' => $baseDir . '/controllers/team_controller.class.php',
     'TeamModel' => $baseDir . '/models/team/team_model.class.php',
     'TeamView' => $baseDir . '/views/team/index/team_view.class.php',
+    'User' => $baseDir . '/models/users/user.class.php',
     'UserController' => $baseDir . '/controllers/user_controller.class.php',
     'UserError' => $baseDir . '/views/error/user_error.class.php',
     'UserModel' => $baseDir . '/models/users/user_model.class.php',

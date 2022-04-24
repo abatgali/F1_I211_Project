@@ -11,6 +11,7 @@ class UserModel
     //private data members
     private $db;
     private $dbConnection;
+    static private $_instance = NULL;
     private $tblUsers;
 
     public function __construct()
@@ -18,6 +19,15 @@ class UserModel
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
         $this->tblUsers = $this->db->getUsersTable();
+    }
+
+    //static method to ensure there is just one UserModel instance
+    public static function getUserModel()
+    {
+        if (self::$_instance == NULL) {
+            self::$_instance = new UserModel();
+        }
+        return self::$_instance;
     }
 
     //add a user into the "users" table in the database
@@ -57,8 +67,8 @@ class UserModel
         $username = trim(filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING));
         $password = trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING));
 
-        //sql statement to filter the users table data with a username
-        $sql = "SELECT password FROM " . $this->db->getUsersTable() . " WHERE username='$username'";
+        //sql statement to filter the users' table data with a username
+        $sql = "SELECT password FROM " . $this->tblUsers . " WHERE username='$username'";
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -68,7 +78,14 @@ class UserModel
             $result_row = $query->fetch_assoc();
             $hash = $result_row['password'];
             if (password_verify($password, $hash)) {
-                setcookie("user", $username);
+                if (!isset($_SESSION))
+                {
+                    session_start();
+                    //$_SESSION["user"] = "";
+                }
+                $_SESSION["user"] = $username;
+                setcookie("user",$username);
+
                 return true;
             }
         }
@@ -79,8 +96,13 @@ class UserModel
     //logout user: destroy session data
     public function logout()
     {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
         //destroy session data
-        setcookie("user", '', -10);
+        session_destroy();
+        unset($_COOKIE["user"]);
+
         return true;
     }
 
@@ -107,5 +129,25 @@ class UserModel
         }
 
         return true;
+    }
+
+    // retrieve user info
+    public function userInfo($username)
+    {
+        // retrieve details from the database
+        $sql = "SELECT * FROM ". $this->tblUsers. " WHERE username =". $username;
+
+        $query = $this->dbConnection->query($sql);
+
+        if (!$query)
+            return false;
+
+        if ($query->num_rows == 0)
+            return 0;
+
+        $obj = $query->fetch_object();
+
+        // returning the user object
+        return new User(stripslashes($obj->userID),stripslashes($obj->username), stripslashes($obj->email), stripslashes($obj->firstname), stripslashes($obj->lastname));
     }
 }

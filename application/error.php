@@ -13,7 +13,6 @@ $page_title = "Error";
 IndexView::displayHeader($page_title);
 
 ?>
-<!--<div id = "main-header">Error</div>-->
 <hr>
 <table style = "width: 100%; border: none">
     <tr>
@@ -28,7 +27,6 @@ IndexView::displayHeader($page_title);
     </tr>
 </table>
 <br><br><br><br><hr>
-<!--<a href="--><?//= BASE_URL ?><!--/movie/index">Back to movie list</a>-->
 
 <?php
 //display footer

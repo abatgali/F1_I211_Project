@@ -13,7 +13,7 @@ class UserController {
     //create an instance of the UserModel class in the default constructor
 
     public function __construct() {
-        $this->user_model = new UserModel();
+        $this->user_model = UserModel::getUserModel();
     }
 
     //display the registration form and/or
@@ -36,7 +36,8 @@ class UserController {
                 $this->login("successful");
             }
             else
-                $this->login("failed");
+                $view = new Register();
+                $view->display("failed");
             // display error msg: Registration unsuccessful or something
         }
 
@@ -51,6 +52,7 @@ class UserController {
 
     //verify username and password by calling the verifyUser method defined in the model.
     //It then calls the display method defined in a view class and pass true or false.
+    // login form submission triggers verify
     public function verify() {
 
         // by default setting attempt to failed
@@ -61,11 +63,42 @@ class UserController {
 
         // check result to direct user accordingly
         if ($result) {
-
+            //show user profile
+            $this->profile($_SESSION["user"]);
+            return true;
         }
-        else
+        else {
             // letting user know login failed
             $this->login($attempt);
+            return false;
+        }
+    }
+
+    // displays user's details
+    public function profile($username)
+    {
+        //check if user is logged in
+        //if (isset($_SESSION["user"])) {
+        echo "user '$username' logged in";
+
+        try {
+
+
+            // retrieving details of the logged-in user
+            $user = $this->user_model->userInfo($username);
+
+
+            // display user profile
+            $view = new ProfileView();
+            $view->display($user);
+        }
+        catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+        //} else {
+            // error: login required
+        //}
 
     }
 
@@ -79,10 +112,10 @@ class UserController {
 
     //display the password reset form or an error message.
     public function reset() {
-        if (!isset($_COOKIE['user'])) {  //if the user has not logged in
+        if (!isset($_SESSION['user'])) {  //if the user has not logged in
             $this->error("To reset your password, please log in first.");
         } else { //if the user has logged in.
-            $user = $_COOKIE['user'];
+            $user = $_SESSION['user'];
             $view = new Reset();
             $view->display($user);
         }

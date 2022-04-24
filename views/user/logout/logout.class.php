@@ -9,16 +9,15 @@
 class Logout extends IndexView {
 
     public function display() {
-        parent::displayHeader("Login");
+        parent::displayHeader("Logout");
+
         ?>
-        <div class="top-row">Login</div>
-        <div class="middle-row">
-            <p>You have successfully logged out.</p>
+
+
+        <div class="container m-5">
+            <h5>You have successfully logged out.</h5>
         </div>
-        <div class="bottom-row">
-            <span style="background-color: #A7030E; border: none; float: left;">Already have an account? <a href="../../../index.php">Login</a></span>
-            <span style=" float: left;">Don't have an account? <a style="color: #A7030E;" href="../../../index.php">Register</a></span>
-        </div>
+
 
         <?php
         parent::displayFooter();

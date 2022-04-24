@@ -16,20 +16,14 @@ class UserError extends IndexView {
         ?>
         <!-- page specific content starts -->
         <!-- top row for the page header  -->
-        <div class="top-row">Error</div>
+        <div class="container m-5">
 
         <!-- middle row -->
         <div class="middle-row">
             <h3>We are sorry, but an error has occurred.</h3>
             <p><?= $message ?></p>
         </div>
-
-        <!-- bottom row for links  -->
-        <div class="bottom-row">
-            <span style="float: left">Already have an account? <a href="index.php?action=login">Login</a></span>
-            <span style="float: right">Don't have an account? <a href="index.php">Register</a></span>
         </div>
-        <!-- page specific content ends -->
 
 
         <?php

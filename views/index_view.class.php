@@ -63,9 +63,24 @@ class IndexView {
                             <li class="nav-item">
                                 <a class="nav-link <?php if ($title == "F1 Cars") {?> active <?php }?>" href="<?= BASE_URL ?>/car/index">Cars</a>
                             </li>
+                            <?php
+                            if (isset($_SESSION["user"])) {
+                            ?>
+                            <li class="nav-item">
+                                <a class="nav-link <?php if ($title == "User Profile") {?> active <?php }?>" href="<?= BASE_URL ?>/user/profile/<?= $_SESSION["user"] ?>">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?php if ($title == "Logout") {?> active <?php }?>" href="<?= BASE_URL ?>/user/logout">Log Out</a>
+                            </li>
+                            <?php
+                            } else {
+                            ?>
                             <li class="nav-item">
                                 <a class="nav-link <?php if ($title == "Login") {?> active <?php }?>" href="<?= BASE_URL ?>/user/login">Log In</a>
                             </li>
+        <?php
+                            }
+        ?>
                         </ul>
                     </div>
                 </div>
