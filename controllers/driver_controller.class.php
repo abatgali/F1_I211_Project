@@ -121,4 +121,11 @@ class DriverController
 
         echo json_encode($titles);
     }
+
+    // display driver stats for the 2022 season
+    public function standings()
+    {
+        $view = new StandingsView();
+        $view->display();
+    }
 }

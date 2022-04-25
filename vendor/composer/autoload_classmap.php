@@ -33,6 +33,7 @@ return array(
     'Reset' => $baseDir . '/views/user/reset/reset.class.php',
     'ResetConfirm' => $baseDir . '/views/user/reset/reset_confirm.php',
     'ResultView' => $baseDir . '/views/driver/search/result_view.class.php',
+    'StandingsView' => $baseDir . '/views/driver/standings/standings_view.class.php',
     'Team' => $baseDir . '/models/team/team.class.php',
     'TeamController' => $baseDir . '/controllers/team_controller.class.php',
     'TeamModel' => $baseDir . '/models/team/team_model.class.php',

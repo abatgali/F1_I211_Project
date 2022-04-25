@@ -85,14 +85,12 @@ class IndexView {
                     </div>
                 </div>
             </nav>
-<!--            <div class="container">-->
         <?php
     }
 
     public static function displayFooter()
     {
         ?>
-<!--                </div>-->
                 <footer class="footer mt-auto py-3 bg-dark">
                     <div class="container">
                         <span class="text-muted"> &copy; Group 3 - I211 Project</span>
