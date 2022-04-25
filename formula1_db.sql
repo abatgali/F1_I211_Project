@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 21, 2022 at 04:33 PM
+-- Generation Time: Apr 25, 2022 at 10:50 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -103,7 +103,8 @@ INSERT INTO `drivers` (`driverID`, `firstName`, `lastName`, `dateOfBirth`, `coun
 (17, 'Lewis', 'Hamilton', '1985-01-07', 'England', 183, 4180, 7, 4, 44),
 (18, 'George', 'Russell', '1998-02-15', 'England', 1, 31, 0, 4, 63),
 (19, 'Charles', 'Leclerc', '1997-10-16', 'Monaco', 14, 586, 0, 1, 16),
-(20, 'Carlos', 'Sainz', '1994-09-01', 'Spain', 7, 554, 0, 1, 55);
+(20, 'Carlos', 'Sainz', '1994-09-01', 'Spain', 7, 554, 0, 1, 55),
+(21, 'Nico', 'Hulkenberg', '1987-08-19', 'Germany', 0, 521, 0, 10, 27);
 
 -- --------------------------------------------------------
 
@@ -150,6 +151,17 @@ CREATE TABLE `users` (
   `lastname` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userID`, `username`, `password`, `email`, `firstname`, `lastname`) VALUES
+(2, 'jdoe', '$2y$10$6dI4x26we0OMskwnHhTHqe/hDQf6Gyq1AFrg6/q.TsDrM4aT6umpC', 'johndoe@nobody.com', 'John', 'Doe'),
+(3, 'ab', '$2y$10$xEw4s2CEdNYYYP/2zb.GE.H791aCyQWhsSvW2qcas.nXch1gfizNK', 'anantb77@gmail.com', 'Anant', 'Batgali'),
+(4, 'worldchampion', '$2y$10$wrm9T4mTLtIxFU7sy.RahumGR07lNHUnjp2moMThX2GiFHqyiEZce', 'champ@gmail.com', 'Yes', 'Right'),
+(5, 'someone', '$2y$10$jR5spKGqZDpJGaqJdfk43eOK8Yox6GPdKqcokp3/WpOvTC.d1TOf6', 'new@guy.com', 'Elon', 'Musk'),
+(7, 'abcd', '$2y$10$2B7HAfFHYCHWL7bdCDk4DuJJiuJXTOWhKwg1GW3ujpk.tlQW229ue', 'abcd@nobody.com', 'hello', 'from the other side');
+
 -- --------------------------------------------------------
 
 --
@@ -158,7 +170,7 @@ CREATE TABLE `users` (
 
 CREATE TABLE `user_favorites` (
   `userID` int(11) NOT NULL,
-  `driverID` int(11) NOT NULL
+  `drivers` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -212,7 +224,7 @@ ALTER TABLE `cars`
 -- AUTO_INCREMENT for table `drivers`
 --
 ALTER TABLE `drivers`
-  MODIFY `driverID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `driverID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `teams`
@@ -224,7 +236,7 @@ ALTER TABLE `teams`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
