@@ -15,7 +15,10 @@ class ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'DataLengthException' => __DIR__ . '/../..' . '/exceptions/data_length_exception.class.php',
+        'DataMissingException' => __DIR__ . '/../..' . '/exceptions/data_missing_exception.class.php',
         'Database' => __DIR__ . '/../..' . '/application/database.class.php',
+        'DatabaseException' => __DIR__ . '/../..' . '/exceptions/database_exception.class.php',
         'Dispatcher' => __DIR__ . '/../..' . '/application/dispatcher.class.php',
         'Driver' => __DIR__ . '/../..' . '/models/driver/driver.class.php',
         'DriverController' => __DIR__ . '/../..' . '/controllers/driver_controller.class.php',
@@ -24,6 +27,7 @@ class ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d
         'DriverIndex' => __DIR__ . '/../..' . '/views/driver/index/driver_index.class.php',
         'DriverIndexView' => __DIR__ . '/../..' . '/views/driver/driver_index_view.class.php',
         'DriverModel' => __DIR__ . '/../..' . '/models/driver/driver_model.class.php',
+        'EmailFormatException' => __DIR__ . '/../..' . '/exceptions/email_format_exception.class.php',
         'HomeController' => __DIR__ . '/../..' . '/controllers/home_controller.class.php',
         'Index' => __DIR__ . '/../..' . '/views/index/index.class.php',
         'IndexView' => __DIR__ . '/../..' . '/views/index_view.class.php',
@@ -42,6 +46,7 @@ class ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d
         'UserController' => __DIR__ . '/../..' . '/controllers/user_controller.class.php',
         'UserError' => __DIR__ . '/../..' . '/views/error/user_error.class.php',
         'UserModel' => __DIR__ . '/../..' . '/models/users/user_model.class.php',
+        'Utilities' => __DIR__ . '/../..' . '/application/utilities.class.php',
         'Verify' => __DIR__ . '/../..' . '/views/user/login/verify.class.php',
     );
 

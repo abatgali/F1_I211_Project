@@ -45,18 +45,42 @@ class UserModel
         $firstname = filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_STRING);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
-        if (empty($username) || empty($password) || empty($lastname) || empty($firstname) || empty($email)) {
-            throw new Exception("Values were missing in one or more fields. All fields must be filled.");
-        }
-        //construct an INSERT query
-        $sql = "INSERT INTO " . $this->tblUsers. " VALUES(NULL, '$username', '$hashed_password', '$email', '$firstname', '$lastname')";
+        try {
+            //Handle data missing exception. All fields are required.
+            if (empty($username) || empty($password) || empty($lastname) || empty($firstname) || empty($email)) {
+                throw new DataMissingException("Values were missing in one or more fields. All fields must be filled.");
+            }
 
-        //execute the query and return true if successful or false if failed
-        if ($this->dbConnection->query($sql) === TRUE) {
-            return true;
-        } else {
-            echo $this->dbConnection->query($sql);
-            return false;
+            //Handle data length exception. The min length of a password is 5.
+            if (strlen($password) < 5) {
+                throw new DataLengthException("Your password was invalid. The mininum length of a password is 5.");
+            }
+
+            //Handle email format exception.
+            if (!Utilities::checkemail($email)) {
+                throw new EmailFormatException("Your email format was invalid. The general format of an email address is user@example.com.");
+            }
+            //hash the password
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            //construct an INSERT query
+            $sql = "INSERT INTO " . $this->db->getUsersTable() . " VALUES(NULL, '$username', '$hashed_password', '$email', '$firstname', '$lastname')";
+
+            //Execute the query. Throw a database exception if the query failed.
+            if ($this->dbConnection->query($sql) === FALSE) {
+                throw new DatabaseException("We are sorry, but we cann create your accout at this moment. Please try again later.");
+            }
+
+            return "Your account has been successfully created.";
+        } catch (DataMissingException $e) {
+            return $e->getMessage();
+        } catch (DataLengthException $e) {
+            return $e->getMessage();
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (EmailFormatException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
     }
 
@@ -67,30 +91,41 @@ class UserModel
         $username = trim(filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING));
         $password = trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING));
 
-        //sql statement to filter the users' table data with a username
-        $sql = "SELECT password FROM " . $this->tblUsers . " WHERE username='$username'";
-
-        //execute the query
-        $query = $this->dbConnection->query($sql);
-
-        //verify password; if password is valid, set a temporary cookie
-        if ($query and $query->num_rows > 0) {
-            $result_row = $query->fetch_assoc();
-            $hash = $result_row['password'];
-            if (password_verify($password, $hash)) {
-                if (!isset($_SESSION["user"]))
-                {
-                    session_start();
-                    //$_SESSION["user"] = "";
-                }
-                $_SESSION["user"] = $username;
-                setcookie("user",$username);
-
-                return true;
+        try {
+            //Handle data missing exception. All fields are required.
+            if (empty($username) || empty($password)) {
+                throw new DataMissingException("Values were missing in one or more fields. All fields must be filled.");
             }
-        }
 
-        return false;
+            //sql statement to filter the users table data with a username
+            $sql = "SELECT password FROM " . $this->db->getUsersTable() . " WHERE username='$username'";
+
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            if (!$query) {
+                throw new DatabaseException("We are sorry, but we cannot create your account at this moment. Please try again later.");
+            }
+            //verify password; if password is valid, set a temporary cookie
+            if ($query->num_rows > 0) {
+                $result_row = $query->fetch_assoc();
+                $hash = $result_row['password'];
+                if (password_verify($password, $hash)) {
+                    setcookie("user", $username);
+                    return "You have successfully logged in.";
+                } else {
+                    throw new DatabaseException("Your username and/or password were invalid. Please try again.");
+                }
+            } else {
+                throw new DatabaseException("Your username and/or password were invalid. Please try again.");
+            }
+        } catch (DataMissingException $e) {
+            return $e->getMessage();
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     //logout user: destroy session data
@@ -113,22 +148,41 @@ class UserModel
         $username = trim(filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING));
         $password = trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING));
 
-        //hash the password
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        try {
+            //Handle data missing exception. All fields are required.
+            if (empty($username) || empty($password)) {
+                throw new DataMissingException("Values were missing in one or more fields. All fields must be filled.");
+            }
 
-        //the sql statement for update
-        $sql = "UPDATE  " . $this->db->getUserTable() . " SET password='$hashed_password' WHERE username='$username'";
+            //Handle data length exception. The min length of a password is 5.
+            if (strlen($password) < 5) {
+                throw new DataLengthException("Your password is invalid. The mininum length of a password is 5.");
+            }
 
-        //execute the query
-        $query = $this->dbConnection->query($sql);
+            //hash the password
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        //return false if no rows were affected
-        if (!$query || $this->dbConnection->affected_rows == 0) {
+            //the sql statement for update
+            $sql = "UPDATE  " . $this->db->getUsersTable() . " SET password='$hashed_password' WHERE username='$username'";
 
-            return false;
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            //return false if no rows were affected
+            if (!$query || $this->dbConnection->affected_rows == 0) {
+                throw new DatabaseException("We are sorry, but we cannot reset your password at this moment. Please try again later.");
+            }
+
+            return "You have successfully reset your password.";
+        } catch (DataMissingException $e) {
+            return $e->getMessage();
+        } catch (DataLengthException $e) {
+            return $e->getMessage();
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
-
-        return true;
     }
 
     // retrieve user info

@@ -15,7 +15,6 @@ class DriverIndexView extends IndexView {
 
         ?>
         <div class="container m-4">
-
             <h4>
         <?php
                 if ($page_title == "F1 Drivers")
