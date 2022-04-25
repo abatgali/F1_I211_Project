@@ -38,6 +38,7 @@ class ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d
         'Reset' => __DIR__ . '/../..' . '/views/user/reset/reset.class.php',
         'ResetConfirm' => __DIR__ . '/../..' . '/views/user/reset/reset_confirm.php',
         'ResultView' => __DIR__ . '/../..' . '/views/driver/search/result_view.class.php',
+        'StandingsView' => __DIR__ . '/../..' . '/views/driver/standings/standings_view.class.php',
         'Team' => __DIR__ . '/../..' . '/models/team/team.class.php',
         'TeamController' => __DIR__ . '/../..' . '/controllers/team_controller.class.php',
         'TeamModel' => __DIR__ . '/../..' . '/models/team/team_model.class.php',

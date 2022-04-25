@@ -26,7 +26,10 @@ class Index extends IndexView
 
         <div class="container p-4">
             <!--Race Calendar-->
+            <button type="button" class="btn btn-warning mb-4" onclick="window.location.href='<?php echo BASE_URL."/driver/standings"; ?>'">Live Driver Standings</button>
+
             <div class="d-flex flex-row">
+
                 <div class="calendar me-5">
                     <h4>Race Calendar 2022</h4>
                     <table class="table table-striped table-hover">

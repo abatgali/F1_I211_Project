@@ -16,8 +16,7 @@ class DriverIndex extends DriverIndexView
         ?>
 
         <script>
-            media = "driver";
-            base_url = <?=  BASE_URL ?>;
+
         </script>
         <!--Search bar -->
         <div class="mx-auto w-50 mt-3">
