@@ -15,21 +15,27 @@ class DriverIndex extends DriverIndexView
         parent::displayHeader("F1 Drivers");
         ?>
 
-        <script>
 
-        </script>
-        <!--Search bar -->
-        <div class="mx-auto w-50 mt-3">
-            <form method="GET" action="<?php echo BASE_URL. "/driver/search"?>">
-                <div class="input-group shadow-sm">
-                    <input type="text" class="form-control" onkeyup="handleKeyUp(event)"
-                           name="terms" id="searchtextbox" placeholder="" aria-label="Search input" aria-describedby="button-addon2" required>
-                    <button class="btn btn-outline-dark" type="submit" >Search</button>
+            <div style="display: flex;" >
+                <button style="margin-top: 18px;" type="button" class="btn btn-warning mb-4" onclick="window.location.href='<?php echo BASE_URL."/driver/standings"; ?>'">Live Driver Standings</button>
+
+                <div class="mx-auto w-50 mt-3">
+                    <form method="GET" action="<?php echo BASE_URL. "/driver/search"?>">
+
+                        <div class="input-group shadow-sm">
+                            <input type="text" class="form-control" onkeyup="handleKeyUp(event)"
+                                   name="terms" id="searchtextbox" placeholder="" aria-label="Search input" aria-describedby="button-addon2" required>
+                            <button class="btn btn-outline-dark" type="submit" >Search</button>
+                        </div>
+                    </form>
+                    <!-- AJAX -->
+                    <div id="suggestionDiv"></div>
                 </div>
-            </form>
-            <!-- AJAX -->
-            <div id="suggestionDiv"></div>
-        </div>
+
+            </div>
+
+        <!--Search bar -->
+
 
         <div class="row row-cols-2 mt-3">
         <?php
