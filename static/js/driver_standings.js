@@ -24,10 +24,10 @@ xmlHttp.onload = function () {
     // looping through the standings array
     // to prepare inner HTML
     driverStandings.forEach(function (item, index) {
-    console.log(item["position"],item["Driver"]["givenName"], item["points"], item["wins"])
+    console.log(item["position"],item["Driver"]["givenName"], item["Driver"]["nationality"], item["points"], item["wins"])
 
         // appending data row each cycle
-        _innerHTML += "<tr><th>" + item["position"] +"</th><td>"+item["Driver"]["permanentNumber"]+"&emsp;"+item["Driver"]["givenName"]+"</td>" +
+        _innerHTML += "<tr><th>" + item["position"] +"</th><td>"+item["Driver"]["permanentNumber"]+"&emsp;"+item["Driver"]["givenName"]+"</td><td>"+item["Driver"]["nationality"]+"</td>" +
             "<td>"+item["points"]+"</td><td>"+item["wins"]+"</td></tr>";
     });
 

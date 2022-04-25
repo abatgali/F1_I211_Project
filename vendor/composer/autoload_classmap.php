@@ -41,6 +41,7 @@ return array(
     'Team' => $baseDir . '/models/team/team.class.php',
     'TeamController' => $baseDir . '/controllers/team_controller.class.php',
     'TeamModel' => $baseDir . '/models/team/team_model.class.php',
+    'TeamStandingsView' => $baseDir . '/views/team/standings/team_standings_view.class.php',
     'TeamView' => $baseDir . '/views/team/index/team_view.class.php',
     'User' => $baseDir . '/models/users/user.class.php',
     'UserController' => $baseDir . '/controllers/user_controller.class.php',

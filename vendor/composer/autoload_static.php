@@ -42,6 +42,7 @@ class ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d
         'Team' => __DIR__ . '/../..' . '/models/team/team.class.php',
         'TeamController' => __DIR__ . '/../..' . '/controllers/team_controller.class.php',
         'TeamModel' => __DIR__ . '/../..' . '/models/team/team_model.class.php',
+        'TeamStandingsView' => __DIR__ . '/../..' . '/views/team/standings/team_standings_view.class.php',
         'TeamView' => __DIR__ . '/../..' . '/views/team/index/team_view.class.php',
         'User' => __DIR__ . '/../..' . '/models/users/user.class.php',
         'UserController' => __DIR__ . '/../..' . '/controllers/user_controller.class.php',

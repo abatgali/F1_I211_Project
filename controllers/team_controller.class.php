@@ -45,4 +45,10 @@ class TeamController {
         $error->display($message);
     }
 
+    // display driver stats for the 2022 season
+    public function standings()
+    {
+        $view = new TeamStandingsView();
+        $view->display();
+    }
 }
