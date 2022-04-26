@@ -6,7 +6,7 @@
  * Description: the display method in the class displays driver details in a form.
  *
  */
-class DriverEdit extends IndexView {
+class DriverEdit extends DriverIndexView {
 
     public function display($driver) {
         //display page header
