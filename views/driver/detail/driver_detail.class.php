@@ -64,6 +64,7 @@ class DriverDetail extends DriverIndexView
                                 <strong>Podiums: </strong><?= $podiums ?><br>
                                 <strong>Points: </strong><?= $points ?><br>
                                 <strong>Championships: </strong><?= $championships ?><br>
+                                <!--only admin gets to edit-->
                                 <?php
                                 if (isset($_SESSION["user"]) and $_SESSION["user"] == "admin") {
 
