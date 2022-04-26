@@ -3,7 +3,7 @@
  * Author: Piper Varney
  * Date: 4/24/22
  * File: utilities.class.php
- * Description: This class contains two static methods for validating email address and date.
+ * Description: This class contains one static method for validating email address.
  */
 
 class Utilities
