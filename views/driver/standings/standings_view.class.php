@@ -23,7 +23,7 @@ class StandingsView extends IndexView
             <h3>Driver Standings 2022</h3>
             <hr>
 
-            <table class="table table-striped table-hover m-4 w-50">
+            <table class="table table-striped table-hover">
                 <thead>
                 <tr>
                     <th scope="col">Position</th>

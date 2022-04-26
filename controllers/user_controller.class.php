@@ -35,14 +35,11 @@ class UserController {
             // with a confirmation message
             if ($result) {
                 $this->login("successful");
+                return true;
             }
-            else
-                $view = new Register();
-                $view->display("failed");
-            // display error msg: Registration unsuccessful or something
+
+            return false;
         }
-
-
     }
 
     //display the login form
@@ -79,10 +76,17 @@ class UserController {
     public function profile($username)
     {
         //check if user is logged in
-        //if (isset($_SESSION["user"])) {
+        if (isset($_SESSION["user"])) {
+            if ($username != $_SESSION["user"]) {
+                throw new Exception("'$username' not logged in");
+            }
+        }
 
         try {
 
+            if ($this->user_model->userInfo($username) === false) {
+                throw new DatabaseException("Error: userInfo function didn't return user object");
+            }
 
             // retrieving details of the logged-in user
             $user = $this->user_model->userInfo($username);
@@ -93,12 +97,10 @@ class UserController {
             $view->display($user);
         }
         catch (Exception $e) {
-            echo $e->getMessage();
-        }
+            $view = new UserError();
+            $view->display($e->getMessage());
 
-        //} else {
-            // error: login required
-        //}
+        }
 
     }
 

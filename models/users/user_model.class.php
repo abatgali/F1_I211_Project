@@ -36,9 +36,6 @@ class UserModel
         //retrieve password from the registration form
         $password = trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING));
 
-        //hash the password
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
         //retrieve other user input from the registration form
         $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
         $lastname = filter_input(INPUT_POST, "lname", FILTER_SANITIZE_STRING);
@@ -70,18 +67,26 @@ class UserModel
                 throw new DatabaseException("We are sorry, but we cannot create your account at this moment. Please try again later.");
             }
 
-            return "Your account has been successfully created.";
+            return true;
+
         } catch (DataMissingException $e) {
-            return $e->getMessage();
+            $view = new UserError();
+            $view->display($e->getMessage());
         } catch (DataLengthException $e) {
-            return $e->getMessage();
+            $view = new UserError();
+            $view->display($e->getMessage());
         } catch (DatabaseException $e) {
-            return $e->getMessage();
+            $view = new UserError();
+            $view->display($e->getMessage());
         } catch (EmailFormatException $e) {
-            return $e->getMessage();
+            $view = new UserError();
+            $view->display($e->getMessage());
         } catch (Exception $e) {
-            return $e->getMessage();
+            $view = new UserError();
+            $view->display($e->getMessage());
         }
+
+        return false;
     }
 
     //verify username and password against a database record
@@ -112,7 +117,12 @@ class UserModel
                 $hash = $result_row['password'];
                 if (password_verify($password, $hash)) {
                     setcookie("user", $username);
-                    return "You have successfully logged in.";
+                    if (!isset($_SESSION)) {
+                        session_start();
+                    }
+                    $_SESSION["user"] = $username;
+                    return true;
+
                 } else {
                     throw new DatabaseException("Your username and/or password were invalid. Please try again.");
                 }
@@ -120,12 +130,18 @@ class UserModel
                 throw new DatabaseException("Your username and/or password were invalid. Please try again.");
             }
         } catch (DataMissingException $e) {
-            return $e->getMessage();
+            $view = new UserError();
+            $view->display($e->getMessage());
         } catch (DatabaseException $e) {
-            return $e->getMessage();
+            $view = new UserError();
+            $view->display($e->getMessage());
         } catch (Exception $e) {
-            return $e->getMessage();
+            $view = new UserError();
+            $view->display($e->getMessage());
         }
+
+        return false;
+
     }
 
     //logout user: destroy session data
@@ -186,10 +202,15 @@ class UserModel
     }
 
     // retrieve user info
-    public function userInfo($username)
+    public function userInfo($user)
     {
+        /*if (isset($_SESSION["user"]))
+            $username = $_SESSION["user"];
+        else
+            return false;*/
+
         // retrieve details from the database
-        $sql = "SELECT userID, username, email, firstname, lastname FROM ". $this->tblUsers. " WHERE username = '$username'";
+        $sql = "SELECT userID, username, email, firstname, lastname FROM ". $this->tblUsers. " WHERE username = '$user'";
 
         $query = $this->dbConnection->query($sql);
 
