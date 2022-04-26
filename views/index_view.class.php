@@ -10,7 +10,10 @@ class IndexView {
 
     public static function displayHeader($title)
     {
-        session_start();
+        if (!isset($_SESSION)) {
+            session_start();
+
+        }
         ?>
 
         <!DOCTYPE html>
