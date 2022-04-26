@@ -53,7 +53,7 @@ class UserModel
 
             //Handle data length exception. The min length of a password is 5.
             if (strlen($password) < 5) {
-                throw new DataLengthException("Your password was invalid. The mininum length of a password is 5.");
+                throw new DataLengthException("Your password was invalid. The minimum length of a password is 5.");
             }
 
             //Handle email format exception.
@@ -67,7 +67,7 @@ class UserModel
 
             //Execute the query. Throw a database exception if the query failed.
             if ($this->dbConnection->query($sql) === FALSE) {
-                throw new DatabaseException("We are sorry, but we cann create your accout at this moment. Please try again later.");
+                throw new DatabaseException("We are sorry, but we cannot create your account at this moment. Please try again later.");
             }
 
             return "Your account has been successfully created.";
@@ -156,7 +156,7 @@ class UserModel
 
             //Handle data length exception. The min length of a password is 5.
             if (strlen($password) < 5) {
-                throw new DataLengthException("Your password is invalid. The mininum length of a password is 5.");
+                throw new DataLengthException("Your password is invalid. The minimum length of a password is 5.");
             }
 
             //hash the password
