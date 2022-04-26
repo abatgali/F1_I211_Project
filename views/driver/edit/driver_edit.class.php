@@ -36,13 +36,13 @@ class DriverEdit extends IndexView {
             <input type="hidden" name="id" value="<?= $id ?>">
 
             <p><strong>Podiums</strong>:
-                <input name="Podiums" type="number" size="4" required value="<?= $podiums ?>"></p>
+                <input name="podiums" type="number" size="4" required value="<?= $podiums ?>"></p>
 
             <p><strong>Points</strong>:
-                <input name="Points" type="number" size="4" required value="<?= $points ?>"></p>
+                <input name="points" type="number" size="4" required value="<?= $points ?>"></p>
 
             <p><strong>Championships</strong>:
-                <input name="Championships" type="number" size="4" required value="<?= $championships ?>"></p>
+                <input name="championships" type="number" size="4" required value="<?= $championships ?>"></p>
 
 
             <input type="submit" name="action" value="Update Driver">
