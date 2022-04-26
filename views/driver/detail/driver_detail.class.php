@@ -64,7 +64,15 @@ class DriverDetail extends DriverIndexView
                                 <strong>Podiums: </strong><?= $podiums ?><br>
                                 <strong>Points: </strong><?= $points ?><br>
                                 <strong>Championships: </strong><?= $championships ?><br>
+                                <?php
+                                if (isset($_SESSION["user"]) and $_SESSION["user"] == "admin") {
+
+                                ?>
                                 <a class="btn btn-primary" href="<?= BASE_URL ?>/driver/edit/<?= $id ?>" role="button">Edit</a>
+                                    <?php
+                                }
+
+                                ?>
                             </div>
                         </div>
                     </div>
