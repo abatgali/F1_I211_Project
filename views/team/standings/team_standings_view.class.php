@@ -28,7 +28,7 @@ class TeamStandingsView extends IndexView
                 <tr>
                     <th scope="col">Position</th>
                     <th scope="col">Team</th>
-                    <th scope="col">Base</th>
+                    <th scope="col">Nationality</th>
                     <th scope="col">Points</th>
                     <th scope="col">Wins</th>
                 </tr>
