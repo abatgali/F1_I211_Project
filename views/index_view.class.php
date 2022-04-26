@@ -97,7 +97,7 @@ class IndexView {
         ?>
                 <footer class="footer mt-auto py-3 bg-dark">
                     <div class="container">
-                        <span class="text-muted"> &copy; Group 3 - I211 Project</span>
+                        <span class="text-muted"> &copy; Group 3 - I211 Final Project</span>
                     </div>
                 </footer>
             </body>
