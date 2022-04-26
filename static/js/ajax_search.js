@@ -2,8 +2,8 @@
  * This script contains AJAX methods
  */
 var xmlHttp;
-var numTitles = 0;  //total number of suggested movies titles
-var activeTitle = -1;  //movie title currently being selected
+var numDrivers = 0;  //total number of suggested movies titles
+var activeDriver = -1;  //movie title currently being selected
 var searchBoxObj, suggestionBoxObj;
 
 //this function creates a XMLHttpRequest object. It should work with most types of browsers.
@@ -43,17 +43,17 @@ function suggest(query) {
 
     //proceed only if the search term isn't empty
     // open an asynchronous request to the server.
-    xmlHttp.open("GET", base_url + "/" + media + "/suggest/" + query, true);
+    xmlHttp.open("GET", base_url + "/" + driver + "/suggest/" + query, true);
 
     //handle server's responses
     xmlHttp.onreadystatechange = function () {
         // proceed only if the transaction has completed and the transaction completed successfully
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
             // extract the JSON received from the server
-            var titles = JSON.parse(xmlHttp.responseText);
+            var drivers = JSON.parse(xmlHttp.responseText);
             //console.log(titlesJSON);
             // display suggested titles in a div block
-            displayTitles(titles);
+            displayDrivers(drivers);
         }
     };
 
@@ -65,11 +65,11 @@ function suggest(query) {
 /* This function populates the suggestion box with spans containing all the titles
  * The parameter of the function is a JSON object
  * */
-function displayTitles(titles) {
-    numTitles = titles.length;
+function displayDrivers(drivers) {
+    numDrivers = drivers.length;
     //console.log(numTitles);
-    activeTitle = -1;
-    if (numTitles === 0) {
+    activeDriver = -1;
+    if (numDrivers === 0) {
         //hide all suggestions
         suggestionBoxObj.style.display = 'none';
         return false;
@@ -77,15 +77,15 @@ function displayTitles(titles) {
 
     var divContent = "";
     //retrive the titles from the JSON doc and create a new span for each title
-    for (i = 0; i < titles.length; i++) {
-        divContent += "<span id=s_" + i + " onclick='clickTitle(this)'>" + titles[i] + "</span>";
+    for (i = 0; i < drivers.length; i++) {
+        divContent += "<span id=s_" + i + " onclick='clickDriver(this)'>" + drivers[i] + "</span>";
     }
     //display the spans in the div block
     suggestionBoxObj.innerHTML = divContent;
     suggestionBoxObj.style.display = 'block';
 }
 
-//This function handles keyup event. The funcion is called for every keystroke.
+//This function handles keyup event. The function is called for every keystroke.
 function handleKeyUp(e) {
     // get the key event for different browsers
     e = (!e) ? window.event : e;
@@ -99,36 +99,36 @@ function handleKeyUp(e) {
     }
 
     //if the up arrow key is pressed
-    if (e.keyCode === 38 && activeTitle > 0) {
+    if (e.keyCode === 38 && activeDriver > 0) {
         //add code here to handle up arrow key. e.g. select the previous item
-        activeTitleObj.style.backgroundColor = "#FFF";
-        activeTitle--;
-        activeTitleObj = document.getElementById("s_" + activeTitle);
-        activeTitleObj.style.backgroundColor = "#F5DEB3";
-        searchBoxObj.value = activeTitleObj.innerHTML;
+        activeDriverObj.style.backgroundColor = "#FFF";
+        activeDriver--;
+        activeDriverObj = document.getElementById("s_" + activeDriver);
+        activeDriverObj.style.backgroundColor = "#F5DEB3";
+        searchBoxObj.value = activeDriverObj.innerHTML;
         return;
     }
 
     //if the down arrow key is pressed
-    if (e.keyCode === 40 && activeTitle < numTitles - 1) {
+    if (e.keyCode === 40 && activeDriver < numDrivers - 1) {
         //add code here to handle down arrow key, e.g. select the next item
 
-        if(typeof(activeTitleObj) != "undefined") {
-            activeTitleObj.style.backgroundColor = "#FFF";
+        if(typeof(activeDriverObj) != "undefined") {
+            activeDriverObj.style.backgroundColor = "#FFF";
         }
-        activeTitle++;
-        activeTitleObj = document.getElementById("s_" + activeTitle);
-        activeTitleObj.style.backgroundColor = "#F5DEB3";
-        searchBoxObj.value = activeTitleObj.innerHTML;
+        activeDriver++;
+        activeDriverObj = document.getElementById("s_" + activeDriver);
+        activeDriverObj.style.backgroundColor = "#F5DEB3";
+        searchBoxObj.value = activeDriverObj.innerHTML;
     }
 }
 
 
 
 //when a title is clicked, fill the search box with the title and then hide the suggestion list
-function clickTitle(title) {
+function clickDriver(driver) {
     //display the title in the search box
-    searchBoxObj.value = title.innerHTML;
+    searchBoxObj.value = driver.innerHTML;
 
     //hide all suggestions
     suggestionBoxObj.style.display = 'none';
