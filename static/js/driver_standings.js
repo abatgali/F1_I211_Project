@@ -27,6 +27,7 @@ xmlHttp.onload = function () {
     console.log(item["position"],item["Driver"]["givenName"], item["Driver"]["nationality"], item["points"], item["wins"])
 
         // appending data row each cycle
+        // full names are displayed
         _innerHTML += "<tr><th>" + item["position"] +"</th><td>"+item["Driver"]["permanentNumber"]+"&emsp;"+item["Driver"]["givenName"]+" "+item["Driver"]["familyName"]+"</td><td>"+item["Driver"]["nationality"]+"</td>" +
             "<td>"+item["points"]+"</td><td>"+item["wins"]+"</td></tr>";
     });
