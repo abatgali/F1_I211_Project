@@ -23,7 +23,7 @@ class TeamView extends IndexView{
                 <th scope="col">Team Name</th>
                 <th scope="col">First Team Entry</th>
                 <th scope="col">World Championships</th>
-                <th scope="col">Base Country</th>
+                <th scope="col">HQ</th>
             </thead>
             <tbody>
             <!-- create a new row for each team -->
