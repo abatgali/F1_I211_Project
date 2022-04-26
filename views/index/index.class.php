@@ -25,12 +25,12 @@ class Index extends IndexView
         </div>
 
         <div class="container p-4">
-            <!--Race Calendar-->
+
             <button type="button" class="btn btn-warning mb-4" onclick="window.location.href='<?php echo BASE_URL."/driver/standings"; ?>'">Live Driver Standings</button>
             <button type="button" class="btn btn-primary mb-4 ms-2" onclick="window.location.href='<?php echo BASE_URL."/team/standings"; ?>'">Team Standings</button>
 
             <div class="d-flex flex-row">
-
+                <!--Race Calendar-->
                 <div class="calendar me-5">
                     <h4>Race Calendar 2022</h4>
                     <table class="table table-striped table-hover">
@@ -264,12 +264,12 @@ class Index extends IndexView
                 <div class="container-fluid mt-4">
                     <h3>The F1 Experience</h3>
                     <iframe src="https://www.youtube.com/embed/2M0inetghnk"
-                            title="YouTube video player" frameborder="0"
+                            title="YouTube video player" frameborder="0" height="175"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
                     </iframe>
                     <iframe src="https://www.youtube.com/embed/wmIrqlUfp6Q"
-                            title="YouTube video player" frameborder="0"
+                            title="YouTube video player" frameborder="0" height="175"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
                     </iframe>

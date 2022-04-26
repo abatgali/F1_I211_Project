@@ -14,8 +14,9 @@ class TeamView extends IndexView{
 
         ?>
         <div class="container m-5">
-            <h5>Season 2022 Teams</h5>
+            <h5>Season 2022 Teams </h5>
             <hr>
+            <button type="button" class="btn btn-primary mb-4 ms-2" onclick="window.location.href='<?php echo BASE_URL."/team/standings"; ?>'">Team Standings</button>
         <table class="table table-striped table-hover">
             <thead>
                 <th scope="col">ID</th>
