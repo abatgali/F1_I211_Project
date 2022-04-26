@@ -16,3 +16,7 @@ date_default_timezone_set('America/New_York');
 
 //base url of the application
 define("BASE_URL", "http://localhost/I211/F1_I211_Project");
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");

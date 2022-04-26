@@ -28,7 +28,8 @@ xmlHttp.onload = function () {
 
         // appending data row each cycle
         // full names are displayed
-        _innerHTML += "<tr><th>" + item["position"] +"</th><td>"+item["Driver"]["permanentNumber"]+"&emsp;"+item["Driver"]["givenName"]+" "+item["Driver"]["familyName"]+"</td><td>"+item["Driver"]["nationality"]+"</td>" +
+        _innerHTML += "<tr><th>" + item["position"] +"</th><td><a href='"+item["Driver"]["url"]+"'>"+item["Driver"]["permanentNumber"]+"</a>&emsp;"+item["Driver"]["givenName"]+" "+item["Driver"]["familyName"]+"</td><td>"+item["Driver"]["nationality"]+"</td>" +
+
             "<td>"+item["points"]+"</td><td>"+item["wins"]+"</td></tr>";
     });
 

@@ -24,10 +24,11 @@ xmlHttp.onload = function () {
     // looping through the standings array
     // to prepare inner HTML
     teamStandings.forEach(function (item) {
-    console.log(item["position"],item["Constructor"]["name"], item["Constructor"]["nationality"], item["points"], item["wins"]);
+
+        console.log(item["position"],item["Constructor"]["name"], item["Constructor"]["nationality"], item["points"], item["wins"]);
 
         // appending data row each cycle
-        _innerHTML += "<tr><th>"+item["position"]+"</th><td>"+item["Constructor"]["name"]+"</td><td>"+item["Constructor"]["nationality"]+"</td><td>"+item["points"]+
+        _innerHTML += "<tr><th>"+item["position"]+"</th><td><a href='"+item["Constructor"]["url"]+"'>"+item["Constructor"]["name"]+"</a></td><td>"+item["Constructor"]["nationality"]+"</td><td>"+item["points"]+
             "</td><td>"+item["wins"]+"</td></tr>";
     });
 
