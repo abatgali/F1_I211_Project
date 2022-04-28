@@ -28,7 +28,9 @@ class Index extends IndexView
 
             <button type="button" class="btn btn-warning mb-4" onclick="window.location.href='<?php echo BASE_URL."/driver/standings"; ?>'">Live Driver Standings</button>
             <button type="button" class="btn btn-primary mb-4 ms-2" onclick="window.location.href='<?php echo BASE_URL."/team/standings"; ?>'">Team Standings</button>
-
+            <button style="background-color: #A7030E; border: none; float: right; margin-right:180px;" type="button" class="btn btn-primary mb-4"
+                    onclick="location.href='<?= BASE_URL ?>/user/register'">Create Account
+            </button>
             <div class="d-flex flex-row">
                 <!--Race Calendar-->
                 <div class="calendar me-5">
@@ -212,41 +214,31 @@ class Index extends IndexView
                         <div class="carousel-item active">
                             <img src="static/img/unsplash5.jpeg" class="d-block w-100" alt="racing">
                             <div class="carousel-caption d-none d-md-block">
-                                <button style="background-color: #A7030E; border: none;" type="button" class="btn btn-primary btn-lg"
-                                        onclick="location.href='<?= BASE_URL ?>/user/register'">Create Account
-                                </button>
+
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="static/img/unsplash2.jpeg" class="d-block w-100 " alt="...">
                             <div class="carousel-caption d-none d-md-block">
-                                <button style="background-color: #A7030E; border: none;" type="button" class="btn btn-primary btn-lg"
-                                        onclick="location.href='<?= BASE_URL ?>/user/register'">Create Account
-                                </button>
+
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="static/img/unsplash3.jpeg" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
-                                <button style="background-color: #A7030E; border: none;" type="button" class="btn btn-primary btn-lg"
-                                        onclick="location.href='<?= BASE_URL ?>/user/register'">Create Account
-                                </button>
+
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="static/img/unsplash1.jpeg" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
-                                <button style="background-color: #A7030E; border: none;" type="button" class="btn btn-primary btn-lg"
-                                        onclick="location.href='<?= BASE_URL ?>/user/register'">Create Account
-                                </button>
+
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="static/img/unsplash4.jpeg" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
-                                <button style="background-color: #A7030E; border: none;" type="button" class="btn btn-primary btn-lg"
-                                        onclick="location.href='<?= BASE_URL ?>/user/register'">Create Account
-                                </button>
+
                             </div>
                         </div>
                     </div>

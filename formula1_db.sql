@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 25, 2022 at 10:50 AM
+-- Generation Time: Apr 28, 2022 at 04:25 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -160,7 +160,10 @@ INSERT INTO `users` (`userID`, `username`, `password`, `email`, `firstname`, `la
 (3, 'ab', '$2y$10$xEw4s2CEdNYYYP/2zb.GE.H791aCyQWhsSvW2qcas.nXch1gfizNK', 'anantb77@gmail.com', 'Anant', 'Batgali'),
 (4, 'worldchampion', '$2y$10$wrm9T4mTLtIxFU7sy.RahumGR07lNHUnjp2moMThX2GiFHqyiEZce', 'champ@gmail.com', 'Yes', 'Right'),
 (5, 'someone', '$2y$10$jR5spKGqZDpJGaqJdfk43eOK8Yox6GPdKqcokp3/WpOvTC.d1TOf6', 'new@guy.com', 'Elon', 'Musk'),
-(7, 'abcd', '$2y$10$2B7HAfFHYCHWL7bdCDk4DuJJiuJXTOWhKwg1GW3ujpk.tlQW229ue', 'abcd@nobody.com', 'hello', 'from the other side');
+(7, 'abcd', '$2y$10$2B7HAfFHYCHWL7bdCDk4DuJJiuJXTOWhKwg1GW3ujpk.tlQW229ue', 'abcd@nobody.com', 'hello', 'from the other side'),
+(14, 'anotherone', '$2y$10$/i0G0XNWkv2dOhasgPNW.ON/S1ABpV/8h5ImCJwUPd2I6/3PyoMiS', 'keep@playing.com', 'DJ', 'Khaled'),
+(16, 'admin', '$2y$10$43BW8dlS0G..lsbzppUq6OR4DnWO5Y8vyvMqQmGgZX9JXAdP7myuK', 'admin@f1.com', 'someone', 'important'),
+(17, 'drum', '$2y$10$OCApUDy8w.1p0Sr1cweNPe/ytYhtnlsTTC.xrGymENoOe9bSxt806', 'drum@gmail.com', 'drum', 'gum');
 
 -- --------------------------------------------------------
 
@@ -169,9 +172,26 @@ INSERT INTO `users` (`userID`, `username`, `password`, `email`, `firstname`, `la
 --
 
 CREATE TABLE `user_favorites` (
-  `userID` int(11) NOT NULL,
-  `drivers` varchar(100) NOT NULL
+  `favID` int(11) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `driverID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_favorites`
+--
+
+INSERT INTO `user_favorites` (`favID`, `username`, `driverID`) VALUES
+(4, 'ab', 5),
+(5, 'ab', 7),
+(6, 'someone', 5),
+(7, 'someone', 18),
+(8, 'someone', 4),
+(9, '0', 5),
+(10, '0', 7),
+(11, '0', 17),
+(12, '0', 5),
+(13, '0', 7);
 
 --
 -- Indexes for dumped tables
@@ -208,7 +228,7 @@ ALTER TABLE `users`
 -- Indexes for table `user_favorites`
 --
 ALTER TABLE `user_favorites`
-  ADD PRIMARY KEY (`userID`);
+  ADD PRIMARY KEY (`favID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -236,7 +256,13 @@ ALTER TABLE `teams`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `user_favorites`
+--
+ALTER TABLE `user_favorites`
+  MODIFY `favID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
