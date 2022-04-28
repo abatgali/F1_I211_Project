@@ -20,11 +20,6 @@ IndexView::displayHeader($page_title);
             <h3> Sorry, but an error has occurred.</h3>
             <div style = "color: red">
                 <?= urldecode($message) ?>
-                <br>
-                <br>
-                <span style="float: left">Try Again? <a style="color: #A7030E;" href="<?= BASE_URL ?>/user/register">Return to Register</a></span>
-                <span style="float: left">Already have an account? <a style="color: #A7030E;" href="<?= BASE_URL ?>/user/login">Login</a></span>
-                <br>
             </div>
             <br>
         </td>
