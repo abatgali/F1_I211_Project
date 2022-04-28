@@ -26,4 +26,13 @@ class FavoriteController
         $this->favorites_model->saveFavorite((int)$driverID, $user);
 
     }
+
+
+    //
+    public function displayFavorites($user)
+    {
+        $this->favorites_model->retrieveFavorites($user);
+
+
+    }
 }

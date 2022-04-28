@@ -52,6 +52,8 @@ class ProfileView extends IndexView
 
         </div>
 
+
+
         <!--sticky footer-->
         <footer class="d-block w-100 bg-dark py-3 position-absolute" style="bottom: 0">
 

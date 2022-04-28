@@ -14,6 +14,7 @@ class FavoritesModel
     private $dbConnection;
     static private $_instance = NULL;
     private $favoritesTable;
+    private $driverTable;
 
     private function __construct()
     {
@@ -40,12 +41,28 @@ class FavoritesModel
             return;
         }
 
+        $check = "SELECT username FROM $this->favoritesTable WHERE driverID = $driverID LIMIT 1";
+
+        $query = $this->dbConnection->query($check);
+        $result_row = $query->fetch_assoc();
+        $user_from_db = $result_row['username'];
+
+        if ($user_from_db == $user) {
+            echo json_encode([$driverID, $user, "driver already exists in favorites."]);
+            return;
+        }
+
         $sql = "INSERT INTO $this->favoritesTable VALUES (NULL, '$user', $driverID)";
 
         $res = $this->dbConnection->query($sql);
 
         echo json_encode([$driverID, $user, $res]);
 
+    }
+
+    public function retrieveFavorites($username)
+    {
+        $sql =
     }
 
 }
