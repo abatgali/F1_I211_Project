@@ -22,6 +22,10 @@ class UserError extends IndexView {
         <div class="middle-row">
             <h3>An error has occurred.</h3>
             <p><?= $message ?></p>
+            <br>
+            <span style="float: left">Try Again? <a style="color: #A7030E;" href="<?= BASE_URL ?>/user/register">Return to Register</a></span>
+            <br><br>
+            <span style="float: left">Already have an account? <a style="color: #A7030E;" href="<?= BASE_URL ?>/user/login">Login</a></span>
         </div>
         </div>
 

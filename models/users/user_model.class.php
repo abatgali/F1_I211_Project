@@ -69,16 +69,6 @@ class UserModel
 
             return "Your account has been successfully created.";
         } catch (DataMissingException $e) {
-            return $e->getMessage();
-        } catch (DataLengthException $e) {
-            return $e->getMessage();
-        } catch (DatabaseException $e) {
-            return $e->getMessage();
-        } catch (EmailFormatException $e) {
-            return $e->getMessage();
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }/*catch (DataMissingException $e) {
             $view = new UserError();
             $view->display($e->getMessage());
         } catch (DataLengthException $e) {
@@ -93,7 +83,7 @@ class UserModel
         } catch (Exception $e) {
             $view = new UserError();
             $view->display($e->getMessage());
-        }*/
+        }
     }
 
     //verify username and password against a database record
