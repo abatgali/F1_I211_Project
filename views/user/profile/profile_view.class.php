@@ -34,7 +34,7 @@ class ProfileView extends IndexView
             <div class="userDetails w-50 m-2">
                 <div class=" mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Username</label>
-                    <input type="text" class="form-control" aria-label="Sizing example input" value="<?= $username?>"
+                    <input id="username" type="text" class="form-control" aria-label="Sizing example input" value="<?= $username?>"
                            aria-describedby="inputGroup-sizing-default" disabled>
                 </div>
                 <div class=" mb-3">

@@ -21,6 +21,7 @@ class FavoritesModel
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
         $this->favoritesTable = $this->db->getUserFavoritesTable();
+        $this->driverTable = $this->db->getDriversTable();
 
     }
 
