@@ -28,6 +28,8 @@ class ComposerStaticInit121436999bb9b3c836c61b7ae444eb4d
         'DriverIndexView' => __DIR__ . '/../..' . '/views/driver/driver_index_view.class.php',
         'DriverModel' => __DIR__ . '/../..' . '/models/driver/driver_model.class.php',
         'EmailFormatException' => __DIR__ . '/../..' . '/exceptions/email_format_exception.class.php',
+        'FavoriteController' => __DIR__ . '/../..' . '/controllers/favorite_controller.class.php',
+        'FavoritesModel' => __DIR__ . '/../..' . '/models/favorites/user_favorites_model.class.php',
         'HomeController' => __DIR__ . '/../..' . '/controllers/home_controller.class.php',
         'Index' => __DIR__ . '/../..' . '/views/index/index.class.php',
         'IndexView' => __DIR__ . '/../..' . '/views/index_view.class.php',
