@@ -8,6 +8,8 @@
  *     display an error message when the requested controller is not found.
  */
 
+
+
 $page_title = "Error";
 //display header
 IndexView::displayHeader($page_title);

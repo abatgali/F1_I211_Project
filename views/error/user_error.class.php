@@ -12,7 +12,7 @@ class UserError extends IndexView {
     public function display($message) {
 
         //call the header method defined in the parent class to add the header
-        //parent::displayHeader("Error");
+        parent::displayHeader("Error");
         ?>
         <!-- page specific content starts -->
         <!-- top row for the page header  -->
@@ -32,6 +32,6 @@ class UserError extends IndexView {
 
         <?php
         //call the footer method defined in the parent class to add the footer
-        //parent::displayFooter();
+        parent::displayFooter();
     }
 }
