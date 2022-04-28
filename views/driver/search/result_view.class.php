@@ -44,10 +44,10 @@ class ResultView extends DriverIndexView
                     <?php
                     if (isset($_SESSION["user"])) {
                         $user = $_SESSION["user"];
-                    }
-                    else {
-                        $user = 0;
-                    }
+                    //}
+                    //else {
+                        //$user = 0;
+
                     ?>
                     <!--fav button-->
                     <button onclick="fav(<?=$driverID?>, '<?=$user?>')" type="button" class="btn btn-outline-danger float-end">
@@ -58,10 +58,11 @@ class ResultView extends DriverIndexView
                         </svg>
                         Favorite
                     </button>
-
+<?php } ?>
                 </div>
             </div>
             <?php
+
             }
             ?>
             <script src="<?php echo BASE_URL."/static/js/favorites.js" ?>"></script>
