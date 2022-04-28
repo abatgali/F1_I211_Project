@@ -33,7 +33,7 @@ class TeamStandingsView extends IndexView
                     <th scope="col">Wins</th>
                 </tr>
                 </thead>
-                <!--should get auto-populated by standings.js script thanks to http://ergast.com/api/f1/current/driverStandings-->
+                <!--should get auto-populated by standings.js script-->
                 <tbody id="fill_ajax">
 
                 </tbody>

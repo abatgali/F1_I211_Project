@@ -29,10 +29,21 @@ class FavoriteController
 
 
     //
-    public function displayFavorites($user)
+    public function drivers()
     {
-        $this->favorites_model->retrieveFavorites($user);
 
+        try {
+            $user = $_GET["user"];
+
+            $drivers = $this->favorites_model->retrieveFavorites($user);
+
+            echo json_encode($drivers);
+
+
+        } catch (Exception $e) {
+            $view = new UserError();
+            $view->display($e->getMessage());
+        }
 
     }
 }

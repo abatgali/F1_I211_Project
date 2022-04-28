@@ -47,11 +47,15 @@ class ProfileView extends IndexView
             <div class="mt-5">
                 <h3>Favorites</h3>
                 <hr>
+                <!--fill asynchronously-->
+                <div id="fill_favs">
+
+                </div>
             </div>
 
 
         </div>
-
+        <script id="showFavs" type="text/javascript" src="<?php echo BASE_URL."/static/js/show_favs.js";?>"></script>
 
 
         <!--sticky footer-->

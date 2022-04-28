@@ -40,8 +40,8 @@ class FavoritesModel
             echo json_encode([$driverID, $user, "couldn't save favorite since user is not logged in"]);
             return;
         }
-
-        $check = "SELECT username FROM $this->favoritesTable WHERE driverID = $driverID LIMIT 1";
+/*
+        $check = "SELECT username FROM $this->favoritesTable WHERE driverID = $driverID";
 
         $query = $this->dbConnection->query($check);
         $result_row = $query->fetch_assoc();
@@ -50,7 +50,7 @@ class FavoritesModel
         if ($user_from_db == $user) {
             echo json_encode([$driverID, $user, "driver already exists in favorites."]);
             return;
-        }
+        }*/
 
         $sql = "INSERT INTO $this->favoritesTable VALUES (NULL, '$user', $driverID)";
 
@@ -62,7 +62,35 @@ class FavoritesModel
 
     public function retrieveFavorites($username)
     {
-        $sql =
+        // create array to store driver objects
+        $driver_ids = [];
+
+        try {
+            // create query to collect all the favorite drivers a user has
+            $sql = "SELECT driverID FROM " . $this->favoritesTable . " WHERE username='$username'";
+
+
+            // execute query
+            if (!$this->dbConnection->query($sql)) {
+                throw new DatabaseException("Favorites couldn't be retrieved, query didn't work.");
+            }
+
+            $query = $this->dbConnection->query($sql);
+
+            // storing driver ids in the array
+            while ($row = $query->fetch_assoc()) {
+                $driver_ids[] = $row["driverID"] ;
+            }
+
+        } catch (DatabaseException $e) {
+            $view = new UserError();
+            $view->display($e->getMessage());
+        } catch (Exception $e) {
+            $view = new UserError();
+            $view->display($e->getMessage());
+        }
+        //var_dump($driver_ids);
+        return $driver_ids;
     }
 
 }

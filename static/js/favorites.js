@@ -23,6 +23,5 @@ function fav(driverID, username) {
 
     xmlHttp.send(null);
 
-
 }
 
