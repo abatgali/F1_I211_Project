@@ -27,6 +27,8 @@ return array(
     'DriverIndexView' => $baseDir . '/views/driver/driver_index_view.class.php',
     'DriverModel' => $baseDir . '/models/driver/driver_model.class.php',
     'EmailFormatException' => $baseDir . '/exceptions/email_format_exception.class.php',
+    'FavoriteController' => $baseDir . '/controllers/favorite_controller.class.php',
+    'FavoritesModel' => $baseDir . '/models/favorites/user_favorites_model.class.php',
     'HomeController' => $baseDir . '/controllers/home_controller.class.php',
     'Index' => $baseDir . '/views/index/index.class.php',
     'IndexView' => $baseDir . '/views/index_view.class.php',
