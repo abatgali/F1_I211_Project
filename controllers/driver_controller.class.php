@@ -111,4 +111,17 @@ class DriverController
         $view = new StandingsView();
         $view->display();
     }
+
+    // this function processes ajax request for script used in profile_view
+    // returning driver objects in json
+    public function favorites()
+    {
+
+        $driverIds = $_GET["ids"];
+        //var_dump($driverIds);
+
+        $objs = $this->driver_model->favDriversInfo($driverIds);
+
+        echo json_encode($objs);
+    }
 }

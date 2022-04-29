@@ -28,7 +28,7 @@ class FavoriteController
     }
 
 
-    //
+    // fetch driver ids from the user favorites table to return them as json for async requests later
     public function drivers()
     {
 
