@@ -65,11 +65,8 @@ class UserController {
             $this->profile($_SESSION["user"]);
             return true;
         }
-        else {
-            // letting user know login failed
-            $this->login($attempt);
             return false;
-        }
+
     }
 
     // displays user's details
@@ -112,26 +109,6 @@ class UserController {
         $view->display();
     }
 
-    //display the password reset form or an error message.
-    public function reset() {
-        if (!isset($_SESSION['user'])) {  //if the user has not logged in
-            $this->error("To reset your password, please log in first.");
-        } else { //if the user has logged in.
-            $user = $_SESSION['user'];
-            $view = new Reset();
-            $view->display($user);
-        }
-    }
-
-    //reset password by calling the resetPassword method in user model
-    public function do_reset() {
-
-        $result = $this->user_model->reset_password();
-        //exit($result);
-
-        $view = new ResetConfirm();
-        $view->display($result);
-    }
 
     //display an error message
     public function error($message) {

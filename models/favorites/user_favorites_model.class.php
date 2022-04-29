@@ -14,7 +14,6 @@ class FavoritesModel
     private $dbConnection;
     static private $_instance = NULL;
     private $favoritesTable;
-    private $driverTable;
 
     private function __construct()
     {
@@ -37,27 +36,24 @@ class FavoritesModel
     // to save drivers as favorites
     public function saveFavorite($driverID, $user)
     {
-        if ($user == 0) {
-            echo json_encode([$driverID, $user, "couldn't save favorite since user is not logged in"]);
-            return;
+        try {
+            $sql = "INSERT INTO $this->favoritesTable VALUES (NULL, '$user', $driverID)";
+
+
+            $res = $this->dbConnection->query($sql);
+
+            if (!$res) {
+                throw new DatabaseException("Query failed to execute");
+            }
+            echo json_encode([$driverID, $user, $res]);
+
+        } catch (DatabaseException $e) {
+            $view = new UserError();
+            $view->display($e->getMessage());
+        } catch (Exception $e) {
+            $view = new UserError();
+            $view->display($e->getMessage());
         }
-/*
-        $check = "SELECT username FROM $this->favoritesTable WHERE driverID = $driverID";
-
-        $query = $this->dbConnection->query($check);
-        $result_row = $query->fetch_assoc();
-        $user_from_db = $result_row['username'];
-
-        if ($user_from_db == $user) {
-            echo json_encode([$driverID, $user, "driver already exists in favorites."]);
-            return;
-        }*/
-
-        $sql = "INSERT INTO $this->favoritesTable VALUES (NULL, '$user', $driverID)";
-
-        $res = $this->dbConnection->query($sql);
-
-        echo json_encode([$driverID, $user, $res]);
 
     }
 

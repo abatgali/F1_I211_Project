@@ -3,7 +3,7 @@
  * Author: Anant Batgali
  * Date: 4/25/22
  * File: team_standings_view.class.php
- * Description: Displays current points each driver has earned over this season using an API
+ * Description: Displays current points each team/constructor has earned
  API source: https://www.postman.com/maintenance-astronomer-29796265/workspace/f1-api/documentation/19328871-63c4a82c-ae84-4a24-a58b-bd8a408b1c4e
  */
 

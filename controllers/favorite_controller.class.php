@@ -20,10 +20,15 @@ class FavoriteController
     // to save the driver in userFavorites table
     public function save()
     {
-        $user =$_GET["user"];
-        $driverID = $_GET["driverID"];
-        //var_dump((int)$driverID, $user);
-        $this->favorites_model->saveFavorite((int)$driverID, $user);
+        try {
+            $user =$_GET["user"];
+            $driverID = $_GET["driverID"];
+            //var_dump((int)$driverID, $user);
+            $this->favorites_model->saveFavorite((int)$driverID, $user);
+        } catch (Exception $e) {
+            $view = new UserError();
+            $view->display($e->getMessage());
+        }
 
     }
 

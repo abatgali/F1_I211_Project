@@ -17,45 +17,75 @@ class DriverController
     }
 
     //index action that displays all drivers
-    public function index() {
-        //retrieve all drivers and store them in an array
-        $drivers = $this->driver_model->listAllDrivers();
-        if (!$drivers) {
-            //display an error
-            $message = "There was a problem displaying drivers.";
-            echo $message;
-
-            return;
+    public function index()
+    {
+        try {
+            //retrieve all drivers and store them in an array
+            $drivers = $this->driver_model->listAllDrivers();
+            if (!$drivers) {
+                //display an error
+                $message = "There was a problem displaying drivers.";
+                throw new DatabaseException($message);
+            }
+            // display all drivers
+            $view = new DriverIndex();
+            $view->display($drivers);
+        } catch (DatabaseException $e) {
+            $view = new UserError();
+            $view->display($e->getMessage());
         }
-        // display all drivers
-        $view = new DriverIndex();
-        $view->display($drivers);
+        catch (Exception $exception) {
+            $view = new UserError();
+            $view->display($exception->getMessage());
+        }
     }
 
     // display info of the selected driver
     public function detail($id) {
 
-        $driver = $this->driver_model->driverInfo($id);
+        try {
+            $driver = $this->driver_model->driverInfo($id);
 
-        if(!$driver) {
-            return;
+            if (!$driver) {
+                throw new DatabaseException("Couldn't retrieve driver details. Database issues.");
+            }
+
+            $view = new DriverDetail();
+            $view->displayDriver($driver);
+        } catch (DatabaseException $e) {
+            $view = new UserError();
+            $view->display($e->getMessage());
+        } catch (Exception $e)
+        {
+            $view = new UserError();
+            $view->display($e->getMessage());
         }
-
-        $view = new DriverDetail();
-        $view->displayDriver($driver);
 
     }
 
 
     //display a driver in a form for editing
     public function edit($id) {
-        //retrieve the specific driver
-        $driver = $this->driver_model->driverInfo($id);
 
-        if (!$driver) {
-            //display an error
-            $message = "There was a problem displaying the movie id='" . $id . "'.";
-            $this->error($message);
+        try {
+            //retrieve the specific driver
+            $driver = $this->driver_model->driverInfo($id);
+
+            if (!$driver) {
+                //display an error
+                $message = "There was a problem displaying the movie id='" . $id . "'.";
+                //$this->error($message);
+                throw new DatabaseException($message);
+            }
+        } catch (DatabaseException $e) {
+            $view = new UserError();
+            $view->display($e->getMessage());
+            return;
+
+        } catch (Exception $e)
+        {
+            $view = new UserError();
+            $view->display($e->getMessage());
             return;
         }
 
@@ -66,15 +96,26 @@ class DriverController
     //update a movie in the database
     public function update($id) {
         //update the movie
-        $update = $this->driver_model->update_driver($id);
-        if (!$update) {
-//            //handle errors
-//            $message = "There was a problem updating the driver id='" . $id . "'.";
-//            $this->error($message);
-//            return;
+        try {
+            $update = $this->driver_model->update_driver($id);
+            if (!$update) {
+                $message = "There was a problem updating the following driver ='" . $id . "'.";
+                throw new DatabaseException($message);
+            }
+        } catch (DatabaseException $e) {
+            $view = new UserError();
+            $view->display($e->getMessage());
+            return;
+
+        } catch (Exception $e)
+        {
+            $view = new UserError();
+            $view->display($e->getMessage());
+            return;
         }
 
-        //display the updateed movie details
+
+        //display the updated driver details
         $confirm = "The driver was successfully updated.";
         $driver = $this->driver_model->driverInfo($id);
 
@@ -85,23 +126,26 @@ class DriverController
     // search and display results
     public function search()
     {
-        // getting user input
-        if(isset($_GET["terms"])) {
+        try {
+            // getting user input
+            if(isset($_GET["terms"])) {
 
-            $terms = $_GET["terms"];
-            $searchTerms = explode(" ", filter_input(INPUT_GET, "terms"));
-        }
-        else {
-            $error = new UserError();
-            $error->display("Missing input");
-            return;
-        }
+                $terms = $_GET["terms"];
+                $searchTerms = explode(" ", filter_input(INPUT_GET, "terms"));
+            }
 
-        // calling the search function in driver model
-        $output = $this->driver_model->search($searchTerms);
 
-        $view = new ResultView();
-        $view->display($terms, $output);
+            // calling the search function in driver model
+            $output = $this->driver_model->search($searchTerms);
+
+            $view = new ResultView();
+            $view->display($terms, $output);
+
+            } catch(Exception $e) {
+            $view = new UserError();
+            $view->display($e->getMessage());
+            return false;
+            }
     }
 
 
@@ -112,16 +156,21 @@ class DriverController
         $view->display();
     }
 
-    // this function processes ajax request for script used in profile_view
+    // this function processes ajax request sent by script used in profile_view
     // returning driver objects in json
     public function favorites()
     {
+        try {
+            $driverIds = $_GET["ids"];
+            //var_dump($driverIds);
 
-        $driverIds = $_GET["ids"];
-        //var_dump($driverIds);
+            $objs = $this->driver_model->favDriversInfo($driverIds);
 
-        $objs = $this->driver_model->favDriversInfo($driverIds);
+            echo json_encode($objs);
+        } catch (Exception $e) {
+            $view = new UserError();
+            $view->display("favorites couldn't be fetched");
+        }
 
-        echo json_encode($objs);
     }
 }

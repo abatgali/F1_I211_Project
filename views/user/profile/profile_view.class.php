@@ -3,7 +3,7 @@
  * Author: Anant Batgali
  * Date: 4/22/22
  * File: profile_view.class.php
- * Description:
+ * Description: Profile View for the user who logs in
  */
 
 class ProfileView extends IndexView

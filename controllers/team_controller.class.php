@@ -20,30 +20,29 @@ class TeamController {
 
     //list all teams
     public function index() {
-        //retrieve all teams and store them in an array
-        $teams = $this->team_model->getTeams();
+        try {
+            //retrieve all teams and store them in an array
+            $teams = $this->team_model->getTeams();
 
-        //if there is no team or retrieving teams from the database failed, display an error message
-        if (!$teams) {
-            $this->error("No team was found.");
-            return;
+            //if there is no team or retrieving teams from the database failed, display an error message
+            if (!$teams) {
+                throw new DatabaseException("Teams cannot be displayed");
+            }
+
+            //create an object of the TeamView class
+            $view = new TeamView();
+
+            //display all teams
+            $view->display($teams);
+        } catch (DatabaseException $e) {
+            $view = new UserError();
+            $view->display($e->getMessage());
+        } catch (Exception $e) {
+            $view = new UserError();
+            $view->display($e->getMessage());
         }
-
-        //create an object of the TeamView class
-        $view = new TeamView();
-
-        //display all teams
-        $view->display($teams);
     }
 
-    //display an error message
-    public function error($message) {
-        //create an object of the Error class
-        $error = new TeamError();
-
-        //display the error page
-        $error->display($message);
-    }
 
     // display driver stats for the 2022 season
     public function standings()

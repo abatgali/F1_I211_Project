@@ -15,11 +15,3 @@
 .imageTeam {
     max-width: 65%;
 }
-
-#ajaxSearch {
-    position: absolute;
-    background-color: #fff;
-    font-size: 0.85em;
-    z-index: 9999;
-    display: block;
-}
