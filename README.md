@@ -2,16 +2,18 @@
 ## I211 - Information Infrastructure II
 ### Project Group 3
 
-Covers 2022 F1 season's details and lets user pick their favorite drivers and a constructor to create their own fantasy F1 team.
+Covers 2022 F1 season information and lets user pick their favorite drivers.
 
 Functionality:
 - Homepage displaying teams, cars and drivers
-- User can create accounts
-- CRUD operations on fantasy teams
+- User can create accounts and save their favorite drivers
+- Admins can update driver career details
+- Live standings of teams and drivers in the 2022 season.
 
 Uses:
 - MVC
 - OOP concepts
 - MySQL
 - PHP
+- AJAX/JavaScript
 
