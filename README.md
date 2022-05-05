@@ -1,5 +1,21 @@
 # Formula 1 Racing Website for Fans
 ## I211 - Information Infrastructure II
+<hr>
+
+![](homepage.png)
+
+![](drivers.png)
+<hr>
+
+![](favorite.png)
+
+![](driverStandings.png)
+
+![](register.png)
+
+![](profile.png)
+<hr>
+
 ### Project Group 3
 
 Covers 2022 F1 season information and lets user pick their favorite drivers.
